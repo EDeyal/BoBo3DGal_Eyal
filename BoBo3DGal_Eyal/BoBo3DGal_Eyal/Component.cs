@@ -5,7 +5,8 @@ using System.Text;
 
 namespace BoBo3DGal_Eyal
 {
-    public class GameObjects
+    abstract class Component : Icomponent
     {
+
     }
 }
