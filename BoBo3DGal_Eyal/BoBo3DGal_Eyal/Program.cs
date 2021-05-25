@@ -10,15 +10,7 @@ namespace BoBo3DGal_Eyal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("This is Main");
-            Console.WriteLine("Shmuel");
 
-            Console.WriteLine( "This is Main");
-            Console.WriteLine( "This is Main");
-            Console.WriteLine( "This is Main");
-            Console.WriteLine( "This is Main");
-            Console.WriteLine( "This is Main");
-            Console.WriteLine( "This is Main");
         }
     }
 }
