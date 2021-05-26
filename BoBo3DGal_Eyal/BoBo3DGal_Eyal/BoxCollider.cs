@@ -21,5 +21,7 @@ namespace BoBo3DGal_Eyal
         {
 
         }
+
+        readonly Vector3 _size;
     }
 }
