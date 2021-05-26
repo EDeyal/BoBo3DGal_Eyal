@@ -7,6 +7,6 @@ namespace BoBo3DGal_Eyal
 {
     public class BoxCollider : Component
     {
-
+        readonly Vector3 _size;
     }
 }

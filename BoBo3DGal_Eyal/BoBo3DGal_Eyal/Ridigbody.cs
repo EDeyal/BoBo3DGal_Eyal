@@ -7,11 +7,17 @@ namespace BoBo3DGal_Eyal
 {
     public class Ridigbooty : Component
     {
+        #region Fields
         private float _velocity;
-        private int _useGravity;
-        private int _gravityScale;
+        private bool _useGravity;
+        private float _gravityScale;
+        #endregion
 
+        #region Properties
         public float Velocity { get => _velocity; set => _velocity = value; }
+        public bool UseGravity { get => _useGravity; set => _useGravity = value; }
+        public float GravityScale { get => _gravityScale; set => _gravityScale = value; }
+        #endregion
 
         public Vector3 AddForce()
         {
