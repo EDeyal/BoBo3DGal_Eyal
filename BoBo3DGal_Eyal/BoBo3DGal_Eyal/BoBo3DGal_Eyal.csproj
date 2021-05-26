@@ -43,13 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoxCollider.cs" />
     <Compile Include="Collision.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Icomponent.cs" />
+    <Compile Include="ITranformable.cs" />
+    <Compile Include="Physics.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ridigbody.cs" />
     <Compile Include="Scene.cs" />
+    <Compile Include="Transform.cs" />
     <Compile Include="Vector3.cs" />
   </ItemGroup>
   <ItemGroup>

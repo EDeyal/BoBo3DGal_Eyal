@@ -17,6 +17,11 @@ namespace BoBo3DGal_Eyal
 
         public bool IsEnabled { get => _isEnabled; set => _isEnabled = value; }
 
+        public GameObject(Transform transform)
+        {
+            _components.Add(transform);
+        }
+
         public void Disable()
         {
             throw new System.NotImplementedException();

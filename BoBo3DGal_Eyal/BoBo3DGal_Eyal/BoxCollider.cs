@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BoBo3DGal_Eyal
 {
-    public abstract class Component : Icomponent
+    public class BoxCollider : Component
     {
 
     }
