@@ -13,18 +13,5 @@ namespace BoBo3DGal_Eyal
         #region Properties
         Vector3 GetSize => _size;
         #endregion
-        public void OnCollision()
-        {
-
-        }
-        public void OnCollisionStart()
-        {
-
-        }
-
-        public void OnCollisionEnd()
-        {
-
-        }
     }
 }
