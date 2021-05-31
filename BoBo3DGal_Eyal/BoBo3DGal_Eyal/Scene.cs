@@ -7,30 +7,42 @@ namespace BoBo3DGal_Eyal
 {
     public class Scene
     {
-        private List<GameObject> _gameObjects;
+        public Scene(int sceneIndex)
+        {
+            SceneIndex = sceneIndex;
+        }
+        List<GameObject> _gameObjects = new List<GameObject>(10);
+        int _sceneIndex;
 
         public List<GameObject> GameObjects { get => _gameObjects; set => _gameObjects = value; }
-
-        public void Start()
+        public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value; }
+        void Start()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Starting Scene");
+            Console.WriteLine("Scene Started");
         }
-
-        public void OnEnable()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnDisable()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Update()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Executing Update");
+            Console.ReadLine();
         }
-
+        public void OnEnable()
+        {
+            Console.WriteLine("Enabling Scene");
+            foreach (var gameObject in GameObjects)
+            {
+                gameObject.Enable();
+            }
+            Start();
+            Console.WriteLine("Scene Enabled");
+        }
+        public void OnDisable()
+        {
+            foreach (var gameObject in GameObjects)
+            {
+                gameObject.Disable();
+            }
+        }
         public void GetGameObject(GameObject gameObject)
         {
             throw new System.NotImplementedException();
