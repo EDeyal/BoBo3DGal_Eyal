@@ -8,19 +8,21 @@ namespace BoBo3DGal_Eyal
     public class GameObject
     {
         #region
-        private List<Component> _components;
+        List<GameObject> _gameObjects = new List<GameObject>();
+        private List<Component> _components = new List<Component>();
         private string _name;
         private bool _isEnabled;
         #endregion
         #region Properties
+        public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
         public List<Component> Components { get => _components; set => _components = value; }
-
         public string Name { get => _name; set => _name = value; }
-
         public bool IsEnabled { get => _isEnabled; set => _isEnabled = value; }
         #endregion
-        public GameObject(Transform transform)
+        public GameObject(string name,Transform transform)
         {
+            Name = name;
+            Console.WriteLine($"New Game Object has been created {ToString()}");
             _components.Add(transform);
         }
         public void Disable()
@@ -55,6 +57,10 @@ namespace BoBo3DGal_Eyal
         public void GetComponent()
         {
             throw new System.NotImplementedException();
+        }
+        public override string ToString()
+        {
+            return $"GameObject Name:{Name}";
         }
     }
 }

@@ -11,14 +11,15 @@ namespace BoBo3DGal_Eyal
         {
             SceneIndex = sceneIndex;
         }
-        List<GameObject> _gameObjects = new List<GameObject>(10);
+        List<GameObject> _gameObjects = new List<GameObject>();
         int _sceneIndex;
 
-        public List<GameObject> GameObjects { get => _gameObjects; set => _gameObjects = value; }
+        public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
         public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value; }
         void Start()
         {
             Console.WriteLine("Starting Scene");
+            GetSetGameObjects.Add(new GameObject("Empty Game Object",new Transform(new Vector3(0,0,0))));
             Console.WriteLine("Scene Started");
         }
         public void Update()
@@ -29,7 +30,7 @@ namespace BoBo3DGal_Eyal
         public void OnEnable()
         {
             Console.WriteLine("Enabling Scene");
-            foreach (var gameObject in GameObjects)
+            foreach (var gameObject in GetSetGameObjects)
             {
                 gameObject.Enable();
             }
@@ -38,7 +39,7 @@ namespace BoBo3DGal_Eyal
         }
         public void OnDisable()
         {
-            foreach (var gameObject in GameObjects)
+            foreach (var gameObject in GetSetGameObjects)
             {
                 gameObject.Disable();
             }

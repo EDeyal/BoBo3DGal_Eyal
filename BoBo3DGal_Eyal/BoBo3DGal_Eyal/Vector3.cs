@@ -64,5 +64,9 @@ namespace BoBo3DGal_Eyal
             Vector3 normlizedVector3 = new Vector3(X / GetMagnitude(this), Y / GetMagnitude(this), Z / GetMagnitude(this)) ;
             return normlizedVector3;
         }
+        public override string ToString()
+        {
+            return $"Position: {X},{Y},{Z}";
+        }
     }
 }
