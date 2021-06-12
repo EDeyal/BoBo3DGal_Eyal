@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace BoBo3DGal_Eyal
 {
-    public class GameObject
+    public class GameObject : IEnumerable
     {
         #region
         List<GameObject> _gameObjects = new List<GameObject>();
@@ -26,6 +27,7 @@ namespace BoBo3DGal_Eyal
             _components.Add(transform);
             transform.GetSetGameObject = this;
         }
+        #region Methods
         public void Disable()
         {
             Console.WriteLine($"Disabling GameObject {ToString()}");
@@ -95,5 +97,12 @@ namespace BoBo3DGal_Eyal
         {
             return $"GameObject Name:{Name}, IsEnabled: {IsEnabled}";
         }
+        #endregion
+        #region Ienumerator
+        public IEnumerator GetEnumerator()
+        {
+            return GetSetGameObjects.GetEnumerator();
+        }
+        #endregion
     }
 }
