@@ -16,10 +16,11 @@ namespace BoBo3DGal_Eyal
 
         public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
         public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value; }
-        void Start()
+        public void Start()
         {
             Console.WriteLine("Starting Scene");
-            GetSetGameObjects.Add(new GameObject("Empty Game Object",new Transform(new Vector3(0,0,0))));
+            GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0))));
+            OnEnable();
             Console.WriteLine("Scene Started");
         }
         public void Update()
@@ -29,13 +30,19 @@ namespace BoBo3DGal_Eyal
         }
         public void OnEnable()
         {
-            Console.WriteLine("Enabling Scene");
-            foreach (var gameObject in GetSetGameObjects)
+            if(GetSetGameObjects != null || GetSetGameObjects.Count != 0)
             {
-                gameObject.Enable();
+                Console.WriteLine("Enabling Scene");
+                foreach (var gameObject in GetSetGameObjects)
+                {
+                    gameObject.Enable();
+                }
+                Console.WriteLine("Scene Enabled");
             }
-            Start();
-            Console.WriteLine("Scene Enabled");
+            else
+            {
+                Console.WriteLine("Game Objects ListEmpty, Enabling Skipped");
+            }
         }
         public void OnDisable()
         {

@@ -28,19 +28,31 @@ namespace BoBo3DGal_Eyal
         }
         public void Disable()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"Disabling GameObject {ToString()}");
+            IsEnabled = false;
+            Console.WriteLine($"GameObject Disabled {ToString()}");
         }
         public void Enable()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"Enabling GameObject {ToString()}");
+            IsEnabled = true;
+            Console.WriteLine($"GameObject Enabled {ToString()}");
         }
-        public void Destroy()
+        public void Destroy(List<GameObject> gameObjects)
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"Destroying {this}");
+            OnDisable();
+            Console.WriteLine($"{Name} is Destroyed");
+            gameObjects.Remove(this);
         }
         public void OnDisable()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"Removing all Components from {this} GameObject");
+            foreach (var component in Components)
+            {
+                Components.Remove(component);
+            }
+            Console.WriteLine($"All Components Are Removed from {this}");
         }
         public void AddComponent(Component component)
         {
@@ -51,17 +63,37 @@ namespace BoBo3DGal_Eyal
             }
             Components.Add(component);
         }
-        public void RemoveComponent()
+        public void RemoveComponent(Component component)
         {
-            throw new System.NotImplementedException();
+            bool isTransform = component is Transform;
+            if (component != null || isTransform != true)
+            {
+                Console.WriteLine("Removing Component");
+                //need implementation
+                Console.WriteLine("Component Removed");
+            }
+            else if(isTransform == true) 
+            {
+                Console.WriteLine("Transform can not be removed");
+            }
+            else
+            {
+                Console.WriteLine("Component is null");
+            }
         }
-        public void GetComponent()
+        public void GetComponent(string nameOfComponent)
         {
-            throw new System.NotImplementedException();
+            if(nameOfComponent == "" || nameOfComponent == null)
+            {
+                Console.WriteLine("Error in Get Component");
+                return;
+            }
+            //SearchComponent
+            Console.WriteLine("Component Recieved");
         }
         public override string ToString()
         {
-            return $"GameObject Name:{Name}";
+            return $"GameObject Name:{Name}, IsEnabled: {IsEnabled}";
         }
     }
 }
