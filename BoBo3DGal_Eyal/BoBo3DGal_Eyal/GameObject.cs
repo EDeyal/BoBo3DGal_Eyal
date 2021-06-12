@@ -30,14 +30,16 @@ namespace BoBo3DGal_Eyal
         #region Methods
         public void Disable()
         {
-            Console.WriteLine($"Disabling GameObject {ToString()}");
+            Console.WriteLine($"Disabling GameObject{ToString()}");
             IsEnabled = false;
+            //need implementation
             Console.WriteLine($"GameObject Disabled {ToString()}");
         }
         public void Enable()
         {
             Console.WriteLine($"Enabling GameObject {ToString()}");
             IsEnabled = true;
+            //need implementation
             Console.WriteLine($"GameObject Enabled {ToString()}");
         }
         public void Destroy(List<GameObject> gameObjects)

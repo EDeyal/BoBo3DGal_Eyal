@@ -38,14 +38,15 @@ namespace BoBo3DGal_Eyal
             Console.WriteLine("Attempting to run Game");
             if (!_isGameOn)
             {
-                if (ActiveScene() == null)
+                Scene scene = ActiveScene();
+                if (scene == null)
                 {
                     Console.WriteLine("Error in Run");
                     return false;
                 }
                 Console.WriteLine("Scene Found Attempting to load");
                 _isGameOn = true;
-                return LoadScene(ActiveScene());
+                return LoadScene(scene);
             }
             CurrentScene.Update();
             Console.WriteLine("Game Running");

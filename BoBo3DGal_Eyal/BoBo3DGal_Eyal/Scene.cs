@@ -16,7 +16,7 @@ namespace BoBo3DGal_Eyal
 
         public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
         public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value; }
-        public void Start()
+        public void Start()//initializing scene
         {
             Console.WriteLine("Starting Scene");
             GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0))));
