@@ -10,22 +10,21 @@ namespace BoBo3DGal_Eyal
 {
     public class SaveManager
     {
-        JsonSerializer serializer = new JsonSerializer();
-        public bool ConvertToJson()
+        string _savePath = "/BOBO3DSaveData.json";
+        string _folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"BoBo3DGal_Eyal";
+        public void CheckForJsonFile()
         {
-            //string json = serializer.Serialize();
-            return true;
+            string newFile = "NewFile";
+            if(File.Exists(_folderPath + _savePath) == false)
+            {
+                //File.WriteAllText(_folderPath + _savePath, JsonConverter);
+                using (StreamWriter file = File.CreateText(_savePath))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    //serializer.Serialize( _savePath, this);
+                }
+            }
         }
-        Object someObject = new Object();
-        void method()
-        {
-            File.WriteAllText("location", JsonConvert.SerializeObject(someObject));
-        }
-    }
-    public class Object
-    {
-        int num = 5;
-        
     }
     
 }
