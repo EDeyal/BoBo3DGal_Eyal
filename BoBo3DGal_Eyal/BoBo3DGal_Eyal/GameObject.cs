@@ -24,6 +24,7 @@ namespace BoBo3DGal_Eyal
             Name = name;
             Console.WriteLine($"New Game Object has been created {ToString()}");
             _components.Add(transform);
+            transform.GetSetGameObject = this;
         }
         public void Disable()
         {

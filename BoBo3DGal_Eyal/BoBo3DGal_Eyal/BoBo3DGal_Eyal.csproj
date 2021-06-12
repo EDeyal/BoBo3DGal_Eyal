@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>BoBo3DGal_Eyal.Program</StartupObject>
+    <StartupObject>BoBo3DGal_Eyal.Testing</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

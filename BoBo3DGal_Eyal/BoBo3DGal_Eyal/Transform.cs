@@ -10,6 +10,7 @@ namespace BoBo3DGal_Eyal
         public Transform(Vector3 newPosition)
         {
             Position = newPosition;
+            //_gameObject = gameObject;
             Console.WriteLine($"New Transform{this}");
         }
         #region Fields
