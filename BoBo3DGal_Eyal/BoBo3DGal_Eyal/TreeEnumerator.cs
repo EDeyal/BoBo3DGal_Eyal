@@ -14,22 +14,28 @@ namespace BoBo3DGal_Eyal
 
         object IEnumerator.Current => throw new NotImplementedException();
 
-        
         public void Dispose()
         {
             throw new NotImplementedException();
         }
-
         public bool MoveNext()
         {
             indicator++;
             throw new NotImplementedException();
         }
-
         public void Reset()
         {
             //move to root node
             throw new NotImplementedException();
         }
+        //go on first node, after that go down on all nodes if you get to a leaf, go back
+
+        //  root       1
+        //           /   \
+        //          2     5
+        //         / \   / \
+        //  leaf  3   4 6
+        //             /
+        //            7
     }
 }

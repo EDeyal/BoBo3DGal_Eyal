@@ -99,6 +99,7 @@
     <Compile Include="GameObject.cs" />
     <Compile Include="Icomponent.cs" />
     <Compile Include="ITranformable.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Physics.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +108,8 @@
     <Compile Include="Scene.cs" />
     <Compile Include="Testing.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="TreeEnumerator.cs" />
+    <Compile Include="TreeOfGameObjects.cs" />
     <Compile Include="Vector3.cs" />
   </ItemGroup>
   <ItemGroup>

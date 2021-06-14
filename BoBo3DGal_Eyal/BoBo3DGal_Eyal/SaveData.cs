@@ -8,6 +8,5 @@ namespace BoBo3DGal_Eyal
 {
     public class SaveData
     {
-        //class containing all data need to be saved
     }
 }
