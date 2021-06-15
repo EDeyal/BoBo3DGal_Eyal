@@ -10,20 +10,33 @@ namespace BoBo3DGal_Eyal
     class TreeOfGameObjects : IEnumerable
     {
         List<Node> _gameObjectsNodes = new List<Node>();
-        public IEnumerator GetEnumerator()
+        public TreeOfGameObjects(List<Node> gameObjects)
         {
-            throw new NotImplementedException();
-        }
-        public GameObject FindGameObjectByName(string name)
-        {
-            GameObject wantedObject = null;
-            foreach (var rootNode in _gameObjectsNodes)
+            _gameObjectsNodes = new List<Node>(gameObjects.Count);
+            for (int i = 0; i < gameObjects.Count; i++)
             {
-                rootNode.FindGameObjectInChildren(name);
-                if (wantedObject != null)
-                    return wantedObject;
+                _gameObjectsNodes[i] = gameObjects[i];
             }
-            return null;
+            //not sure needed for list
         }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public TreeEnumerator GetEnumerator()
+        {
+            return new TreeEnumerator(_gameObjectsNodes);
+        }
+        //public GameObject FindGameObjectByName(string name)
+        //{
+        //    GameObject wantedObject = null;
+        //    foreach (var rootNode in _gameObjectsNodes)
+        //    {
+        //        rootNode.FindGameObjectInChildren(name);
+        //        if (wantedObject != null)
+        //            return wantedObject;
+        //    }
+        //    return null;
+        //}
     }
 }

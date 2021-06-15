@@ -5,16 +5,22 @@ using System.Threading.Tasks;
 
 namespace BoBo3DGal_Eyal
 {
-    class Node//class that holds one gameObject and knows the location on the tree
+    public class Node//class that holds one gameObject and knows the location on the tree
         //leaf, root, chield, parant
     {
+        #region Fields
         List<Node> _children = new List<Node>();
         Node _parent;
         GameObject _gameObject;
-        bool isRoot;
-        bool isLeaf;
-        bool isChild;
-        bool isParent;
+        bool _isRoot;
+        bool _isLeaf;
+        bool _isChild;
+        bool _isParent;
+        #endregion
+        #region Properties
+        public GameObject GetGameObject => _gameObject;
+        public bool GetIsRoot => _isRoot;
+        #endregion
         public GameObject FindGameObjectInChildren(string name)
         {
             //check if name is acceptable or not null
