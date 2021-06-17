@@ -55,8 +55,13 @@ namespace BoBo3DGal_Eyal
         public bool MoveNext()//run the algorithem for every root?
         {
             //Advances the enumerator to the next element of the collection.
-
             _rootPosition++;
+            //search all of the tree nodes in depth;
+            if(_rootlist[_rootPosition].GetGameObject.Name == _searchedName )
+            {
+                _wantedObject = _rootlist[_rootPosition].GetGameObject;
+            }
+            _wantedObject = _rootlist[_rootPosition].FindGameObjectInChildren(_searchedName);
             return (_rootPosition < _rootlist.Count);
         }
         public void Reset()//reset to first root?

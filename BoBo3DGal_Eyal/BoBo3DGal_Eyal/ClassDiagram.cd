@@ -10,21 +10,21 @@
   <Class Name="BoBo3DGal_Eyal.Game">
     <Position X="19" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAAAABAAAACAAABAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>BAAAABAAAAAAAAABAAAICAAAAQACAAAAhCAAAIAAKAI=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoBo3DGal_Eyal.Scene">
     <Position X="17.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAEACAAAAAAAAAAAAAACAAAAAAIAAgAAAAACAA=</HashCode>
+      <HashCode>AAQAQAAAACAAAAAAAAACAgAACAAAAAAIAAgAAAAACAA=</HashCode>
       <FileName>Scene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoBo3DGal_Eyal.GameObject">
     <Position X="15.25" Y="2.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAIAIIIAAAAEADAQAAABAAAAMAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAYAAAAIAIIIAEAAEADAQACABAAAAMAAAgAAAAAAA=</HashCode>
       <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -50,35 +50,35 @@
   <Class Name="BoBo3DGal_Eyal.Physics">
     <Position X="8.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAIAAAAAAAQAA=</HashCode>
       <FileName>Physics.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoBo3DGal_Eyal.Ridigbooty">
     <Position X="13.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAIAAAAAAAAIAAAAAAAAAAAAAAAACAAEAAE=</HashCode>
+      <HashCode>AAAAAAQAAAIAAAAAgIAIAAAAAAAAAAAAAAAACAAEAAE=</HashCode>
       <FileName>Ridigbody.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoBo3DGal_Eyal.Transform">
     <Position X="10" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgkAAAAAAAACAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Transform.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoBo3DGal_Eyal.BoxCollider">
     <Position X="11.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>BoxCollider.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="BoBo3DGal_Eyal.Vector3">
     <Position X="2.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAQAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAIAAQAAAEEEEAAAAAAAAAAAAAAAAAQAAAA4AE=</HashCode>
       <FileName>Vector3.cs</FileName>
     </TypeIdentifier>
   </Struct>

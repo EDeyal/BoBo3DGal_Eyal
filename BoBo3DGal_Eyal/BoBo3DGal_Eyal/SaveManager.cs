@@ -6,15 +6,30 @@ namespace BoBo3DGal_Eyal
 {
     public class SaveManager
     {
-        public SaveData _saveData = new SaveData();
-        string _savePath = "/BOBO3DSaveData.json";
-        string _folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"BoBo3DGal_Eyal";
-        public void CheckForJsonFile()//check if there is already a file or not
+        SaveData _saveData = new SaveData();
+        string _savePath = @"\BOBO3DSaveData.json";
+        string _folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\BoBo3DGal_Eyal";
+
+        public bool CheckForJsonFile()//check if there is already a file or not
         {
-            if(File.Exists(_folderPath + _savePath) == false)
+            if (!Directory.Exists(_folderPath))
             {
-                File.WriteAllText(_folderPath + _savePath, JsonConvert.SerializeObject(_saveData  , Formatting.Indented));
+                Directory.CreateDirectory(_folderPath);
+                File.Create(_folderPath + _savePath).Close();
+                return false;
             }
+            else
+            {
+                if (!File.Exists(_folderPath + _savePath))
+                {
+                    File.Create(_folderPath + _savePath).Close();
+                    return false;
+                }
+                else
+                {
+                }
+            }
+            return true;
         }
         public void DestroyJsonFile()//delete file
         {
@@ -22,6 +37,7 @@ namespace BoBo3DGal_Eyal
         }
         public void SaveJsonFile(SaveData saveData)//save from saveData to Json and transform to file
         {
+            CheckForJsonFile(); 
             File.WriteAllText(_folderPath + _savePath, JsonConvert.SerializeObject(saveData, Formatting.Indented));
         }
         public SaveData LoadFromJson()//Load From File To String and afterward transform to saveData

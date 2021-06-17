@@ -8,6 +8,10 @@ namespace BoBo3DGal_Eyal
     public class Node//class that holds one gameObject and knows the location on the tree
         //leaf, root, chield, parant
     {
+        public Node(GameObject gameObject)
+        {
+            _gameObject = gameObject;
+        }
         #region Fields
         List<Node> _children = new List<Node>();
         Node _parent;

@@ -60,7 +60,7 @@ namespace BoBo3DGal_Eyal
                 Console.WriteLine("Error in LoadScene");
                 return false;
             }
-            scene.Starta();
+            scene.Start();
             Console.WriteLine("Scene Loadded");
             return true;
         }

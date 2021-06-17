@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BoBo3DGal_Eyal
 {
-    public class GameObject : IEnumerable
+    public class GameObject
     {
         #region
         List<GameObject> _gameObjects = new List<GameObject>();
@@ -98,12 +98,6 @@ namespace BoBo3DGal_Eyal
         public override string ToString()
         {
             return $"GameObject Name:{Name}, IsEnabled: {IsEnabled}";
-        }
-        #endregion
-        #region Ienumerator
-        public IEnumerator GetEnumerator()
-        {
-            return GetSetGameObjects.GetEnumerator();
         }
         #endregion
     }

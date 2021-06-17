@@ -8,6 +8,7 @@ namespace BoBo3DGal_Eyal
 {
     public class SaveData
     {
+        public int id = 5;
         //all data that needs to be saved should come from here
     }
 }
