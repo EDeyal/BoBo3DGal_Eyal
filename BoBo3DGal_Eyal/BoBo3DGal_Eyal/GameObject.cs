@@ -35,17 +35,17 @@ namespace BoBo3DGal_Eyal
             Console.WriteLine($"New Game Object has been created {ToString()}");
             Transform tr = new Transform(new Vector3(0, 0, 0));
             AddComponent(tr);
-            tr.GetSetGameObject = this;
+            tr.GetSetParentGameObject = this;
         }
         public GameObject(string name,Transform transform)//Constructor with Transform that the player will enter
         {
             Name = name;
             Console.WriteLine($"New Game Object has been created {ToString()}");
             AddComponent(transform);
-            transform.GetSetGameObject = this;
+            transform.GetSetParentGameObject = this;
         }
         #region Methods
-        public void Disable()
+        public void DisableGameObject()
         {
             Console.WriteLine($"Disabling GameObject{ToString()}");
             IsEnabled = false;
@@ -94,6 +94,7 @@ namespace BoBo3DGal_Eyal
                 return;
             }
             Components.Add(component);
+            component.GetSetParentGameObject = this;
             Console.WriteLine("Component added");
         }
         public void RemoveComponent(Component component)

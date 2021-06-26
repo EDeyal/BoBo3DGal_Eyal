@@ -59,7 +59,7 @@ namespace BoBo3DGal_Eyal
         }
         public void EnableNode(Node node)//enabling all nodes
         {
-            Console.WriteLine($"Enabling {node.ToString()}");
+            Console.WriteLine($"Enabling {node}");
             node.GetGameObject.EnableGameObject();
             foreach (var child in node.GetChildren)
             {
@@ -68,7 +68,12 @@ namespace BoBo3DGal_Eyal
         }
         public void DisableNode(Node node)
         {
-            //need implementation
+            Console.WriteLine($"Disabling {node}");
+            node.GetGameObject.DisableGameObject();
+            foreach (var child in node.GetChildren)
+            {
+                DisableNode(child);
+            }
         }
         public GameObject FindGameObject(string gameObjectName)
         {

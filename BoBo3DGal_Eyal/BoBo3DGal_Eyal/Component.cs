@@ -7,5 +7,7 @@ namespace BoBo3DGal_Eyal
 {
     public abstract class Component : Icomponent
     {
+        public abstract GameObject GetSetParentGameObject { get; set; }
+
     }
 }

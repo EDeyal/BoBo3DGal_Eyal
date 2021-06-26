@@ -13,11 +13,11 @@ namespace BoBo3DGal_Eyal
             Console.WriteLine($"New Transform{this}");
         }
         #region Fields
-        GameObject _gameObject;
+        GameObject _parentGameObject;
         Vector3 _position;
         #endregion
         #region Properties
-        public GameObject GetSetGameObject { get => _gameObject; set => _gameObject = value; }
+        public override GameObject GetSetParentGameObject { get => _parentGameObject; set => _parentGameObject = value; }
         public Vector3 Position { get => _position; set => _position = value; }
         #endregion
         public override string ToString()
