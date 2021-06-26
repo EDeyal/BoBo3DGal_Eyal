@@ -35,6 +35,9 @@ namespace BoBo3DGal_Eyal
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(new BoxCollider());
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(bc);
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.GetComponent<Transform>();
+            GetGameObject("Player Hand");
+            GetGameObject("Playe");
+
 
 
 
@@ -70,9 +73,13 @@ namespace BoBo3DGal_Eyal
                 tree.Root.GetGameObject.Disable();
             }
         }
-        public void GetGameObject(GameObject gameObject)
+        public void GetGameObject(string gameObjectName)
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"Looking for GameObject with the name:{gameObjectName}");
+            foreach (var tree in GetHirarchy)
+            {
+                tree.Root.FindGameObject(gameObjectName);
+            }
         }
     }
 }

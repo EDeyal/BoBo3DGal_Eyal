@@ -57,7 +57,7 @@ namespace BoBo3DGal_Eyal
             child.GetSetParant = this;
             _children.Add(child);
         }
-        public void EnableNode(Node node)
+        public void EnableNode(Node node)//enabling all nodes
         {
             Console.WriteLine($"Enabling {node.ToString()}");
             node.GetGameObject.EnableGameObject();
@@ -65,6 +65,38 @@ namespace BoBo3DGal_Eyal
             {
                 EnableNode(child);
             }
+        }
+        public void DisableNode(Node node)
+        {
+            //need implementation
+        }
+        public GameObject FindGameObject(string gameObjectName)
+        {
+            Console.WriteLine($"Looking inside {_gameObject.Name}");
+            if(gameObjectName == null || gameObjectName == "")
+            {
+                Console.WriteLine("Error in FindGameObject Name");
+                return null;
+            }
+            if (_gameObject.Name == gameObjectName)
+            {
+                Console.WriteLine($"GameObject Found returning {_gameObject.Name}");
+                return _gameObject;
+            }
+            else
+            {
+                foreach (var child in GetChildren)
+                {
+                    var gameObject = child.FindGameObject(gameObjectName);
+                    if(gameObject != null)
+                    {
+                        Console.WriteLine($"GameObject Found returning {gameObject.Name}");
+                        return gameObject;
+                    }
+                }
+            }
+            Console.WriteLine("There are no gameobjects of the name in this root");
+            return null;
         }
         public override string ToString()
         {
