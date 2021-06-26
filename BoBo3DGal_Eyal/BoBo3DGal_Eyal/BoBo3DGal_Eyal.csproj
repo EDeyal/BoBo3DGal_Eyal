@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>BoBo3DGal_Eyal.Testing</StartupObject>
+    <StartupObject>BoBo3DGal_Eyal.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -109,7 +109,7 @@
     <Compile Include="Scene.cs" />
     <Compile Include="Testing.cs" />
     <Compile Include="Transform.cs" />
-    <Compile Include="TreeEnumerator.cs" />
+    <Compile Include="TreeDepthEnumerator.cs" />
     <Compile Include="TreeOfGameObjects.cs" />
     <Compile Include="Vector3.cs" />
   </ItemGroup>

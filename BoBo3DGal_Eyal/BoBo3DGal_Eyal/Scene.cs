@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace BoBo3DGal_Eyal
@@ -11,15 +10,34 @@ namespace BoBo3DGal_Eyal
         {
             SceneIndex = sceneIndex;
         }
-        List<GameObject> _gameObjects = new List<GameObject>();
+        #region Field
+        List<TreeOfGameObjects> _hirarchy = new List<TreeOfGameObjects>();
+        //List<GameObject> _gameObjects = new List<GameObject>();
         int _sceneIndex;
+        #endregion
+        #region Properties
+        List<TreeOfGameObjects> GetHirarchy => _hirarchy;
+        //public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
+        public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value;}
 
-        public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
-        public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value; }
+        #endregion
         public void Start()//initializing scene
         {
             Console.WriteLine("Starting Scene");
-            GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0))));
+            //GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0))));
+
+            //testing hirarcy
+            GetHirarchy.Add(new TreeOfGameObjects(new Node(new GameObject("Player"), null)));
+            new Node(new GameObject("Player Hand", new Transform(new Vector3(0, 0, 0))), GetHirarchy[0].Root);
+            BoxCollider bc = new BoxCollider();
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(bc);
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(new Transform(new Vector3 (0,1,0)));
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(new BoxCollider());
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(bc);
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.GetComponent<Transform>();
+
+
+
             OnEnable();
             Console.WriteLine("Scene Started");
         }
@@ -28,14 +46,15 @@ namespace BoBo3DGal_Eyal
             Console.WriteLine("Executing Update");
             Console.ReadLine();
         }
-        public void OnEnable()
+        public void OnEnable()//Enabling all game objects
         {
-            if(GetSetGameObjects != null || GetSetGameObjects.Count != 0)
+            if(GetHirarchy != null || GetHirarchy.Count != 0)
             {
                 Console.WriteLine("Enabling Scene");
-                foreach (var gameObject in GetSetGameObjects)
+                foreach (var tree in GetHirarchy)
                 {
-                    gameObject.Enable();
+                    tree.Root.EnableNode(tree.Root);
+                    //gameObject.Enable();
                 }
                 Console.WriteLine("Scene Enabled");
             }
@@ -46,9 +65,9 @@ namespace BoBo3DGal_Eyal
         }
         public void OnDisable()
         {
-            foreach (var gameObject in GetSetGameObjects)
+            foreach (var tree in GetHirarchy)
             {
-                gameObject.Disable();
+                tree.Root.GetGameObject.Disable();
             }
         }
         public void GetGameObject(GameObject gameObject)

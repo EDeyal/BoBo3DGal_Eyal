@@ -10,9 +10,9 @@ namespace BoBo3DGal_Eyal
     {
         static void Main(string[] args)
         {
-            SaveManager sm = new SaveManager();
-            SaveData sd = new SaveData();
-            sm.SaveJsonFile(sd);
+            //SaveManager sm = new SaveManager();
+            //SaveData sd = new SaveData();
+            //sm.SaveJsonFile(sd);
 
             //List<Node> nodeList = new List<Node>();
             //TreeOfGameObjects treeStruct = new TreeOfGameObjects(nodeList);
