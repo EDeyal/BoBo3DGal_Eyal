@@ -20,13 +20,13 @@ namespace BoBo3DGal_Eyal
             _z = z;
         }
 
-        public Vector3 AddVector3(Vector3 firstVector3, Vector3 secondVector3)
+        public Vector3 Add(Vector3 firstVector3, Vector3 secondVector3)
         {
             Vector3 AddVector3 = new Vector3(firstVector3.X + secondVector3.X, firstVector3.Y + secondVector3.Y, firstVector3.Z + secondVector3.Z);
             return AddVector3;
         }
 
-        public Vector3 SubVector3(Vector3 firstVector3, Vector3 secondVector3)
+        public Vector3 Sub(Vector3 firstVector3, Vector3 secondVector3)
         {
             Vector3 SubVector3 = new Vector3(firstVector3.X - secondVector3.X, firstVector3.Y - secondVector3.Y, firstVector3.Z - secondVector3.Z);
             return SubVector3;

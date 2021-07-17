@@ -16,6 +16,7 @@ namespace BoBo3DGal_Eyal
         private bool _isEnabled;
         bool _isSetActive = true;
         #endregion
+
         #region Properties
         //public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
         public List<Component> Components { get => _components; set => _components = value; }
@@ -29,21 +30,28 @@ namespace BoBo3DGal_Eyal
         }
         public Node GetSetParentNode { get => _parentNode; set => _parentNode = value; }
         #endregion
+
         public GameObject(string name)//Default constructor that transform is vector3 zero
         {
             Name = name;
             Console.WriteLine($"New Game Object has been created {ToString()}");
-            Transform tr = new Transform(new Vector3(0, 0, 0));
+            Transform tr = new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1));
             AddComponent(tr);
             tr.GetSetGameObject = this;
         }
-        public GameObject(string name,Transform transform)//Constructor with Transform that the player will enter
+        //public GameObject(string name,Transform transform) - Constructor with Transform that the player will enter
+
+
+        public GameObject(string name,Transform transform)
+
         {
             Name = name;
             Console.WriteLine($"New Game Object has been created {ToString()}");
-            AddComponent(transform);
-            transform.GetSetGameObject = this;
+            Transform tr = new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1));
+            AddComponent(tr);
+            tr.GetSetGameObject = this;
         }
+
         #region Methods
         public void Disable()
         {
@@ -128,14 +136,35 @@ namespace BoBo3DGal_Eyal
                 Console.WriteLine("Component is null");
             }
         }
+<<<<<<< Updated upstream
         public T GetComponent<T>() where T : Component
         {
             Console.WriteLine("Trying to get component");
             if(typeof(T) == null)
+=======
+
+        /*public Component GetComponent(Type type)
+        {
+             foreach (Component component in Components)
+            {               
+                if (component !=as type)
+                    continue;
+                else
+                {
+                    //return component;
+                }
+            }
+        }*/
+
+        public void GetComponent(string componentName)
+        {
+            if(componentName == "" || componentName == null)
+>>>>>>> Stashed changes
             {
                 Console.WriteLine("Error in Get Component");
                 return null;
             }
+<<<<<<< Updated upstream
             foreach (var item in _components)
             {
                 if(item.GetType() == typeof(T))
@@ -147,6 +176,20 @@ namespace BoBo3DGal_Eyal
             return null;
             //SearchComponent
             Console.WriteLine("Did not find component");
+=======
+
+            // try get component
+            foreach (Component component in Components)
+            {               
+                if (componentName != component.ToString())
+                    continue;
+                else
+                {
+                    //return component;
+                }
+            }
+            Console.WriteLine("Component Recieved");
+>>>>>>> Stashed changes
         }
         public override string ToString()
         {

@@ -27,8 +27,9 @@ namespace BoBo3DGal_Eyal
             //GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0))));
 
             //testing hirarcy
+            /*
             GetHirarchy.Add(new TreeOfGameObjects(new Node(new GameObject("Player"), null)));
-            new Node(new GameObject("Player Hand", new Transform(new Vector3(0, 0, 0))), GetHirarchy[0].Root);
+            new Node(new GameObject("Player Hand", new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1))), GetHirarchy[0].Root);
             BoxCollider bc = new BoxCollider();
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(bc);
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(new Transform(new Vector3 (0,1,0)));
@@ -37,7 +38,7 @@ namespace BoBo3DGal_Eyal
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.GetComponent<Transform>();
             GetGameObject("Player Hand");
             GetGameObject("Playe");
-
+            */
 
 
 
