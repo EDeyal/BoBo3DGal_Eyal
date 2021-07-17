@@ -7,11 +7,15 @@ namespace BoBo3DGal_Eyal
 {
     public struct Vector3
     {
+        #region Fields
         float _x, _y, _z;
+        #endregion
 
+        #region Properties
         public float X { get => _x; set => _x = value; }
         public float Y { get => _y; set => _y = value; }
         public float Z { get => _z; set => _z = value; }
+        #endregion
 
         public Vector3(float x, float y, float z)
         {
@@ -20,6 +24,7 @@ namespace BoBo3DGal_Eyal
             _z = z;
         }
 
+        #region Methods
         public Vector3 Add(Vector3 firstVector3, Vector3 secondVector3)
         {
             Vector3 AddVector3 = new Vector3(firstVector3.X + secondVector3.X, firstVector3.Y + secondVector3.Y, firstVector3.Z + secondVector3.Z);
@@ -64,9 +69,13 @@ namespace BoBo3DGal_Eyal
             Vector3 normlizedVector3 = new Vector3(X / GetMagnitude(this), Y / GetMagnitude(this), Z / GetMagnitude(this)) ;
             return normlizedVector3;
         }
+        #endregion
+
+        #region Overrides
         public override string ToString()
         {
-            return $"Position: {X},{Y},{Z}";
+            return $"{X},{Y},{Z}";
         }
+        #endregion
     }
 }

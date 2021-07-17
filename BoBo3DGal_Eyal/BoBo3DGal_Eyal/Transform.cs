@@ -27,10 +27,11 @@ namespace BoBo3DGal_Eyal
             Console.WriteLine($"New Transform{this}");
         }
 
+        #region Overrides
         public override string ToString()
         {
-            return $"{Position}" + Environment.NewLine
-                 + $"{Scale}";
+            return $"Position: {Position}," + $" Scale: {Scale}";
         }
+        #endregion
     }
 }

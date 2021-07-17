@@ -8,6 +8,7 @@ namespace BoBo3DGal_Eyal
     public class BoxCollider : Component
     {
         #region Fields
+        string _tag;
         // distance from center to horizontal edge
         float _cX;
         // distance from center to vertical edge
@@ -28,6 +29,7 @@ namespace BoBo3DGal_Eyal
         #endregion
 
         #region Properties
+        public string Tag { get => _tag; set => _tag = value; }
         public float CX { get => _cX; set => _cX = value; }
         public float CY { get => _cY; set => _cY = value; }
         public float CZ { get => _cZ; set => _cZ = value; }
@@ -44,6 +46,7 @@ namespace BoBo3DGal_Eyal
 
         public BoxCollider(GameObject gameObject)
         {
+            Tag = gameObject.Name + " Colider";
             float objX = gameObject.GetComponent<Transform>().Position.X;
             float objY = gameObject.GetComponent<Transform>().Position.Y;
             float objZ = gameObject.GetComponent<Transform>().Position.Z;
@@ -92,7 +95,7 @@ namespace BoBo3DGal_Eyal
         #region Overrides
         public override string ToString()
         {
-            Console.WriteLine($"{} Colider");
+            return $"{Tag}";
         }
         #endregion
     }
