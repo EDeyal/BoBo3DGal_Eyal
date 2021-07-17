@@ -8,17 +8,19 @@ namespace BoBo3DGal_Eyal
 {
     public static class Physics
     {
-        private static float _gravity;
+        public static List<BoxCollider> AllBoxColliders = new List<BoxCollider>(20);
+
+        private static float _gravity = 9.80665f;
 
         public static float Gravity { get => _gravity; set => _gravity = value; }
 
-        /*public static bool AABB(BoxCollider boxA, BoxCollider boxB)
+        public static bool AABB(BoxCollider boxA, BoxCollider boxB)
         {
-            return boxA.Left < boxB.Right &&
-                    boxA.Right > boxB.Left &&
-                    boxA.Top < boxB.Bottom &&
-                    boxA.Bottom > boxB.Top;
-        }*/
+            return boxA.BoxLeft < boxB.BoxRight &&
+                    boxA.BoxRight > boxB.BoxLeft &&
+                    boxA.BoxTop < boxB.BoxBottom &&
+                    boxA.BoxBottom > boxB.BoxTop;
+        }
 
         public static void OnCollision()
         {

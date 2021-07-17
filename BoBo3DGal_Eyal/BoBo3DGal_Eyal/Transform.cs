@@ -7,22 +7,30 @@ namespace BoBo3DGal_Eyal
 {
     public class Transform : Component
     {
-        public Transform(Vector3 newPosition)
-        {
-            Position = newPosition;
-            Console.WriteLine($"New Transform{this}");
-        }
+
         #region Fields
         GameObject _gameObject;
         Vector3 _position;
+        Vector3 _scale;
         #endregion
+
         #region Properties
         public GameObject GetSetGameObject { get => _gameObject; set => _gameObject = value; }
         public Vector3 Position { get => _position; set => _position = value; }
+        public Vector3 Scale { get => _scale; set => _scale = value; }
         #endregion
+
+        public Transform(Vector3 newPosition, Vector3 newScale)
+        {
+            Position = newPosition;
+            Scale = newScale;
+            Console.WriteLine($"New Transform{this}");
+        }
+
         public override string ToString()
         {
-            return $"{Position}";
+            return $"{Position}" + Environment.NewLine
+                 + $"{Scale}";
         }
     }
 }
