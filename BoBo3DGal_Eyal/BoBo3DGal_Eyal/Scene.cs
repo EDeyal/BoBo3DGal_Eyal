@@ -19,6 +19,7 @@ namespace BoBo3DGal_Eyal
 
         #endregion
 
+        #region Methods
         public Scene(int sceneIndex)
         {
             SceneIndex = sceneIndex;
@@ -85,5 +86,6 @@ namespace BoBo3DGal_Eyal
                 tree.Root.FindGameObject(gameObjectName);
             }
         }
+        #endregion
     }
 }
