@@ -6,39 +6,42 @@ namespace BoBo3DGal_Eyal
 {
     public class Scene
     {
+        #region Field
+        List<TreeOfGameObjects> _hirarchy = new List<TreeOfGameObjects>();
+        List<GameObject> _gameObjects = new List<GameObject>();
+        int _sceneIndex;
+        #endregion
+
+        #region Properties
+        public List<TreeOfGameObjects> GetHirarchy => _hirarchy;
+        public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
+        public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value;}
+
+        #endregion
+
         public Scene(int sceneIndex)
         {
             SceneIndex = sceneIndex;
         }
-        #region Field
-        List<TreeOfGameObjects> _hirarchy = new List<TreeOfGameObjects>();
-        //List<GameObject> _gameObjects = new List<GameObject>();
-        int _sceneIndex;
-        #endregion
-        #region Properties
-        List<TreeOfGameObjects> GetHirarchy => _hirarchy;
-        //public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
-        public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value;}
 
-        #endregion
         public void Start()//initializing scene
         {
             Console.WriteLine("Starting Scene");
-            //GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0))));
+            GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1))));
 
             //testing hirarcy
-            /*
+            
             GetHirarchy.Add(new TreeOfGameObjects(new Node(new GameObject("Player"), null)));
             new Node(new GameObject("Player Hand", new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1))), GetHirarchy[0].Root);
-            BoxCollider bc = new BoxCollider();
+            BoxCollider bc = new BoxCollider(_gameObjects[0]);
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(bc);
-            GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(new Transform(new Vector3 (0,1,0)));
-            GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(new BoxCollider());
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(new Transform(new Vector3 (0,1,0), new Vector3(1, 1, 1)));
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(new BoxCollider(_gameObjects[0]));
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(bc);
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.GetComponent<Transform>();
             GetGameObject("Player Hand");
             GetGameObject("Playe");
-            */
+            
 
 
 

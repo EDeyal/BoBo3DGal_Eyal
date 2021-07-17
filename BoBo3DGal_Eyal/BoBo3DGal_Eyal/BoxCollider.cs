@@ -88,5 +88,12 @@ namespace BoBo3DGal_Eyal
             }
         }
         #endregion
+
+        #region Overrides
+        public override string ToString()
+        {
+            Console.WriteLine($"{} Colider");
+        }
+        #endregion
     }
 }

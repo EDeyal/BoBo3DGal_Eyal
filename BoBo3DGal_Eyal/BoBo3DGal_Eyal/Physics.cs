@@ -29,7 +29,7 @@ namespace BoBo3DGal_Eyal
                    boxA.BoxBottom > boxB.BoxTop;
         }
 
-        public static void Update()
+        public static void CheckCollision()
         {
             foreach (BoxCollider colider in AllBoxColliders)
             {
@@ -42,9 +42,8 @@ namespace BoBo3DGal_Eyal
                         continue;
 
                     if (AABB(colider, anotherColider))
-                        Console.WriteLine("Overlap");
+                        Console.WriteLine(colider + " and " + anotherColider + " are coliding");
                 }
-
             }
         }
 
@@ -61,6 +60,9 @@ namespace BoBo3DGal_Eyal
         {
 
         }
+        #endregion
+
+        #region Overrides
         #endregion
     }
 }
