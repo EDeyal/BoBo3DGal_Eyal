@@ -15,27 +15,31 @@ namespace BoBo3DGal_Eyal
         Stack<int> _cache;
         bool _reachedEnd = false;
         #endregion
+
         #region Properties
         public Node Current => _current;
         //Gets the element in the collection at the current position of the enumerator.
         object IEnumerator.Current => this._current;
         #endregion
+
         public TreeDepthEnumerator(TreeOfGameObjects collection)
         {
             _tree = collection;
             _cache = new Stack<int>();
         }
+
+        #region Methods
         public void Dispose()
         {
             //Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         }
+
         public bool MoveNext()//run the algorithem for every root?
         {
             //Advances the enumerator to the next element of the collection.
             if(_reachedEnd)
-            {
                 return false;
-            }
+
             //were at the begining
             if(_cache.Count == 0)
             {
@@ -59,12 +63,15 @@ namespace BoBo3DGal_Eyal
             _cache.Push(0);
             return true;
         }
+
         public void Reset()//reset to first root?
         {
             //Sets the enumerator to its initial position, which is before the first element in the collection.
             _reachedEnd = false;
             _current = default(Node);
         }
+        #endregion
+
         //go on first node, after that go down on all nodes if you get to a leaf, go back
 
         //  root       1
