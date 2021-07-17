@@ -9,20 +9,22 @@ namespace BoBo3DGal_Eyal
     {
         #region Fields
         // distance from center to horizontal edge
-        private float _cX;
+        float _cX;
         // distance from center to vertical edge
-        private float _cY;
+        float _cY;
         // distance from center to diagonal edge
-        private float _cZ;
+        float _cZ;
 
-        private float _boxTop;
-        private float _boxBottom;
-        private float _boxLeft;
-        private float _boxRight;
-        private float _boxFront;
-        private float _boxBack;
-        private Vector3 _scale = new Vector3(1,1,1);
-        private Vector3 _position = new Vector3();
+        float _boxTop;
+        float _boxBottom;
+        float _boxLeft;
+        float _boxRight;
+        float _boxFront;
+        float _boxBack;
+        Vector3 _scale = new Vector3(1,1,1);
+        Vector3 _position = new Vector3();
+
+        bool _isEnabled = true;
         #endregion
 
         #region Properties
@@ -37,15 +39,29 @@ namespace BoBo3DGal_Eyal
         public float BoxBack { get => _boxBack; set => _boxBack = value; }
         public Vector3 Scale { get => _scale; set => _scale = value; }
         public Vector3 Position { get => _position; set => _position = value; }
+        public bool IsEnabled { get => _isEnabled; set => _isEnabled = value; }
         #endregion
 
-        BoxCollider(GameObject gameObject, Vector3 size)
+        public BoxCollider(GameObject gameObject)
         {
-            gameObject.Transform
-            // determain distance of every side from center
-            CX = size.X / 2;
-            CY = size.Y / 2;
-            CZ = size.Z / 2;
+            float objX = gameObject.GetComponent<Transform>().Position.X;
+            float objY = gameObject.GetComponent<Transform>().Position.Y;
+            float objZ = gameObject.GetComponent<Transform>().Position.Z;
+
+            //width
+            float objW = gameObject.GetComponent<Transform>().Scale.X;
+            //height
+            float objH = gameObject.GetComponent<Transform>().Scale.Y;
+            //depth
+            float objD = gameObject.GetComponent<Transform>().Scale.Z;
+
+            //determain distance of every side from center
+            CX = objW / 2;
+            CY = objH / 2;
+            CZ = objD / 2;
+
+            //set colider posiotion to object positino
+            Position = new Vector3(objX, objY, objZ);
 
             // set the exact points of box
             BoxLeft = Position.X - CX;
@@ -55,5 +71,22 @@ namespace BoBo3DGal_Eyal
             BoxFront = Position.Z - CZ;
             BoxBack = Position.Z + CZ;
         }
+
+        #region Methods
+        public void Disable()
+        {
+            if (IsEnabled)
+            {
+                IsEnabled = false;
+            }
+        }
+        public void Enable()
+        {
+            if (!IsEnabled)
+            {
+                IsEnabled = true;
+            }
+        }
+        #endregion
     }
 }

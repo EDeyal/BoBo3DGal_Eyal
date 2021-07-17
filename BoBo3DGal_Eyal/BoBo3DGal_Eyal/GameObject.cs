@@ -136,77 +136,59 @@ namespace BoBo3DGal_Eyal
                 Console.WriteLine("Component is null");
             }
         }
-<<<<<<< Updated upstream
         public T GetComponent<T>() where T : Component
         {
             Console.WriteLine("Trying to get component");
-            if(typeof(T) == null)
-=======
+            if (typeof(T) == null)
+                Console.WriteLine("Did not find component");
 
-        /*public Component GetComponent(Type type)
-        {
-             foreach (Component component in Components)
-            {               
-                if (component !=as type)
-                    continue;
-                else
-                {
-                    //return component;
-                }
-            }
-        }*/
-
-        public void GetComponent(string componentName)
-        {
-            if(componentName == "" || componentName == null)
->>>>>>> Stashed changes
+            //SearchComponent
+            foreach (Component item in _components)
             {
-                Console.WriteLine("Error in Get Component");
-                return null;
-            }
-<<<<<<< Updated upstream
-            foreach (var item in _components)
-            {
-                if(item.GetType() == typeof(T))
+                if (item.GetType() == typeof(T))
                 {
                     Console.WriteLine($"Found component {item}");
                     return item as T;
                 }
             }
             return null;
-            //SearchComponent
-            Console.WriteLine("Did not find component");
-=======
+        }
 
-            // try get component
-            foreach (Component component in Components)
-            {               
-                if (componentName != component.ToString())
-                    continue;
-                else
-                {
-                    //return component;
-                }
-            }
-            Console.WriteLine("Component Recieved");
->>>>>>> Stashed changes
-        }
-        public override string ToString()
-        {
-            return $"Name:{Name}, IsEnabled: {IsEnabled}";
-        }
-        bool CheckForTransform(Component component)
-        {
-            if (component is Transform)
+            /*
+            public void GetComponent(string componentName)
             {
-                foreach (var componnent in _components)
-                {
-                    if (componnent is Transform)
+
+
+                // try get component
+                foreach (Component component in Components)
+                {               
+                    if (componentName != component.ToString())
+                        continue;
+                    else
                     {
-                        return true;
+                        //return component;
                     }
                 }
+                Console.WriteLine("Component Recieved");
+            }*/
+
+            public override string ToString()
+            {
+                return $"Name:{Name}, IsEnabled: {IsEnabled}";
             }
+
+            bool CheckForTransform(Component component)
+            {
+                if (component is Transform)
+                {
+                    foreach (var componnent in _components)
+                    {
+                        if (componnent is Transform)
+                        {
+                            return true;
+                        }
+                    }
+                }
             return false;
         }
         #endregion
