@@ -79,16 +79,12 @@ namespace BoBo3DGal_Eyal
         public void Disable()
         {
             if (IsEnabled)
-            {
                 IsEnabled = false;
-            }
         }
         public void Enable()
         {
             if (!IsEnabled)
-            {
                 IsEnabled = true;
-            }
         }
         #endregion
 
