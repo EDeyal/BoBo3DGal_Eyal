@@ -25,40 +25,40 @@ namespace BoBo3DGal_Eyal
         }
 
         #region Methods
-        public Vector3 Add(Vector3 firstVector3, Vector3 secondVector3)
+        public Vector3 Add(Vector3 newVector3)
         {
-            Vector3 AddVector3 = new Vector3(firstVector3.X + secondVector3.X, firstVector3.Y + secondVector3.Y, firstVector3.Z + secondVector3.Z);
+            Vector3 AddVector3 = new Vector3(X + newVector3.X, Y + newVector3.Y, Z + newVector3.Z);
             return AddVector3;
         }
 
-        public Vector3 Sub(Vector3 firstVector3, Vector3 secondVector3)
+        public Vector3 Sub(Vector3 newVector3)
         {
-            Vector3 SubVector3 = new Vector3(firstVector3.X - secondVector3.X, firstVector3.Y - secondVector3.Y, firstVector3.Z - secondVector3.Z);
+            Vector3 SubVector3 = new Vector3(X - newVector3.X, Y - newVector3.Y, Z - newVector3.Z);
             return SubVector3;
         }
 
-        public int GetDotProduct(Vector3 firstVector3, Vector3 secondVector3)
+        public int GetDotProduct()
         {
             int dotPX;
             int dotPY;
             int dotPZ;
 
-            dotPX = (int)Math.Round(firstVector3._x * secondVector3._x);
-            dotPY = (int)Math.Round(firstVector3._y * secondVector3._y);
-            dotPZ = (int)Math.Round(firstVector3._z * secondVector3._z);
+            dotPX = (int)Math.Round(X * X);
+            dotPY = (int)Math.Round(Y * Y);
+            dotPZ = (int)Math.Round(Z * Z);
 
             return dotPX + dotPY + dotPZ;
         }
 
-        public float GetMagnitude(Vector3 vector3)
+        public float GetMagnitude()
         {
             float magX;
             float magY;
             float magZ;
 
-            magX = (float)Math.Round(vector3._x * vector3._x);
-            magY = (float)Math.Round(vector3._y * vector3._y);
-            magZ = (float)Math.Round(vector3._z * vector3._z);
+            magX = (float)Math.Round(X * X);
+            magY = (float)Math.Round(Y * Y);
+            magZ = (float)Math.Round(Z * Z);
 
             float _magnitude = (float)Math.Sqrt(magX + magY + magZ);
             return _magnitude;
@@ -66,7 +66,7 @@ namespace BoBo3DGal_Eyal
 
         public Vector3 Normalize()
         {
-            Vector3 normlizedVector3 = new Vector3(X / GetMagnitude(this), Y / GetMagnitude(this), Z / GetMagnitude(this)) ;
+            Vector3 normlizedVector3 = new Vector3(X / GetMagnitude(), Y / GetMagnitude(), Z / GetMagnitude()) ;
             return normlizedVector3;
         }
         #endregion

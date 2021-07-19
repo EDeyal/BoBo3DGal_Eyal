@@ -51,6 +51,10 @@ namespace BoBo3DGal_Eyal
         }
         public void Update()
         {
+            foreach (GameObject gameObject in GetSetGameObjects)
+                gameObject.GetComponent<Ridigbooty>();
+
+
             Console.WriteLine("Executing Update");
             Console.ReadLine();
         }

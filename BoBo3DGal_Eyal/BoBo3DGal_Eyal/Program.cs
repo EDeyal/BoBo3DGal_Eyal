@@ -10,6 +10,7 @@ namespace BoBo3DGal_Eyal
     {
         static void Main(string[] args)
         {
+            /* - Original Start of app
             Game game = new Game();
             bool gameOn = true;
             while(gameOn)
@@ -17,6 +18,9 @@ namespace BoBo3DGal_Eyal
                 gameOn = game.Run();
             }
             Console.ReadLine();
+            */
+
+            Scene scne = new Scene();
         }
     }
 }

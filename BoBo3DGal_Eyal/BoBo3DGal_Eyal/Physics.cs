@@ -47,6 +47,65 @@ namespace BoBo3DGal_Eyal
             }
         }
 
+        public static void SolveCollision(GameObject gameObject)
+        {
+            foreach(BoxCollider colider in AllBoxColliders)
+            {
+                if (!colider.IsEnabled)
+                    continue;
+
+                foreach (BoxCollider anotherColider in AllBoxColliders)
+                {
+                    if (!colider.IsEnabled)
+                        continue;
+
+                    //simple directional solutions: ← → ↑ ↓
+                    if (AABB(colider, anotherColider))
+                    {
+                        //bounce left
+                        if (colider.BoxRight >= anotherColider.BoxLeft)
+                            colider.Position.Sub(new Vector3(1, 0, 0));
+
+                        //bounce right
+                        if (colider.BoxLeft >= anotherColider.BoxRight)
+                            colider.Position.Add(new Vector3(1, 0, 0));
+
+                        //bounce up
+                        if (colider.BoxBottom >= anotherColider.BoxTop)
+                            colider.Position.Sub(new Vector3(0, 1, 0));
+
+                        //bounce down
+                        if (colider.BoxTop >= anotherColider.BoxBottom)
+                            colider.Position.Add(new Vector3(0, 1, 0));
+                    }
+
+                    //simple diagonal direction solutions: ↖ ↗ ↙ ↘
+                    if (AABB(colider, anotherColider))
+                    {
+                        //bounce top-left
+                        if (colider.BoxRight >= anotherColider.BoxLeft)
+                            if (colider.BoxBottom >= anotherColider.BoxTop)
+                                colider.Position.Sub(new Vector3(1, 1, 0));
+
+                        //bounce top-right
+                        if (colider.BoxLeft >= anotherColider.BoxRight)
+                            if (colider.BoxBottom >= anotherColider.BoxTop)
+                                colider.Position.Add(new Vector3(1, -1, 0));
+
+                        //bounce bottom-left
+                        if (colider.BoxRight >= anotherColider.BoxLeft)
+                            if (colider.BoxTop >= anotherColider.BoxBottom)
+                                colider.Position.Sub(new Vector3(1, -1, 0));
+
+                        //bounce bottom-right
+                        if (colider.BoxLeft >= anotherColider.BoxRight)
+                            if (colider.BoxTop >= anotherColider.BoxBottom)
+                                colider.Position.Add(new Vector3(1, 1, 0));
+                    }                       
+                }
+            }
+        }
+
         public static void OnCollision()
         {
 

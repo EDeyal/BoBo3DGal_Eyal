@@ -32,24 +32,23 @@ namespace BoBo3DGal_Eyal
         #endregion
 
         #region Constructors
-        public GameObject(string name)//Default constructor that transform is vector3 zero
+        //Default constructor that transform is vector3 zero
+        public GameObject(string name)
         {
             Name = name;
             Console.WriteLine($"New Game Object has been created {ToString()}");
-            Transform tr = new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1));
-            AddComponent(tr);
-            tr.GetSetGameObject = this;
+            Transform transform = new Transform();
+            AddComponent(transform);
+            transform.GetSetGameObject = this;
         }
-        //public GameObject(string name,Transform transform) - Constructor with Transform that the player will enter
 
+        //Constructor with Transform that the player will enter
         public GameObject(string name,Transform transform)
-
         {
             Name = name;
             Console.WriteLine($"New Game Object has been created {ToString()}");
-            Transform tr = new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1));
-            AddComponent(tr);
-            tr.GetSetGameObject = this;
+            AddComponent(transform);
+            //transform.GetSetGameObject = this;
         }
         #endregion
 
