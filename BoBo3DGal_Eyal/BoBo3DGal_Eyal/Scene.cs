@@ -9,12 +9,14 @@ namespace BoBo3DGal_Eyal
         #region Field
         List<TreeOfGameObjects> _hirarchy = new List<TreeOfGameObjects>();
         List<GameObject> _gameObjects = new List<GameObject>();
+        GameObject _gameObject;
         int _sceneIndex;
         #endregion
 
         #region Properties
         public List<TreeOfGameObjects> GetHirarchy => _hirarchy;
         public List<GameObject> GetSetGameObjects { get => _gameObjects; set => _gameObjects = value; }
+        public GameObject @GameObject { get => _gameObject; set => _gameObject = value;}
         public int SceneIndex { get => _sceneIndex; set => _sceneIndex = value;}
 
         #endregion
@@ -25,7 +27,8 @@ namespace BoBo3DGal_Eyal
             SceneIndex = sceneIndex;
         }
 
-        public void Start()//initializing scene
+        //initializing scene
+        public void Start()
         {
             Console.WriteLine("Starting Scene");
             GetSetGameObjects.Add(new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1))));
@@ -43,8 +46,34 @@ namespace BoBo3DGal_Eyal
             GetGameObject("Player Hand");
             GetGameObject("Playe");
             
+            OnEnable();
+            Console.WriteLine("Scene Started");
+        }
 
+        public void AlternativeStart()
+        {
+            GameObject player = new GameObject("Player");
+            GameObject emptyGameObject = new GameObject("Empty Game Object", new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1)));
+            GameObject playerHand = new GameObject("Player Hand", new Transform(new Vector3(0, 0, 0), new Vector3(1, 1, 1)));
 
+            Node node = new Node(playerHand, GetHirarchy[0].Root);
+            Node treeNode = new Node(player, null);
+
+            TreeOfGameObjects tree = new TreeOfGameObjects(treeNode);
+            Console.WriteLine("Starting Scene");
+            GetSetGameObjects.Add(@GameObject);
+
+            //testing hirarcy
+
+            GetHirarchy.Add(tree);
+            BoxCollider bc = new BoxCollider(_gameObjects[0]);
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(bc);
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.AddComponent(new Transform(new Vector3(0, 1, 0), new Vector3(1, 1, 1)));
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(new BoxCollider(_gameObjects[0]));
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(bc);
+            GetHirarchy[0].Root.GetChildren[0].GetGameObject.GetComponent<Transform>();
+            GetGameObject("Player Hand");
+            GetGameObject("Player");
 
             OnEnable();
             Console.WriteLine("Scene Started");

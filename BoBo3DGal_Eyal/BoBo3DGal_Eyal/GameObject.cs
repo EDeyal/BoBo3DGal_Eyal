@@ -12,6 +12,7 @@ namespace BoBo3DGal_Eyal
         //List<GameObject> _gameObjects = new List<GameObject>();
         List<Component> _components = new List<Component>();
         Node _parentNode;
+        
         string _name;
         bool _isEnabled;
         bool _isSetActive = true;
@@ -37,9 +38,9 @@ namespace BoBo3DGal_Eyal
         {
             Name = name;
             Console.WriteLine($"New Game Object has been created {ToString()}");
-            Transform transform = new Transform();
+            Transform transform = new Transform(this);
             AddComponent(transform);
-            transform.GetSetGameObject = this;
+            transform.GameObject = this;
         }
 
         //Constructor with Transform that the player will enter

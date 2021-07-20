@@ -7,5 +7,6 @@ namespace BoBo3DGal_Eyal
 {
     public interface Icomponent
     {
+
     }
 }

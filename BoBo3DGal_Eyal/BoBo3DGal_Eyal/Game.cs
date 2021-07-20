@@ -11,6 +11,7 @@ namespace BoBo3DGal_Eyal
         List<Scene> _sceneList = new List<Scene>(10);
         Scene _currentScene;
         Scene _defaultScene = new Scene(0);
+        
         float _deltaTime;
         bool _isGameOn = false;
         #endregion

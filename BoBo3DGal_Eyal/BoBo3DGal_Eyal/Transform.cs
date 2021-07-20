@@ -20,6 +20,7 @@ namespace BoBo3DGal_Eyal
         public Vector3 Scale { get => _scale; set => _scale = value; }
         #endregion
 
+        #region Constructors
         public Transform(GameObject gameObject)
         {
             Name = gameObject.Name;
@@ -27,6 +28,19 @@ namespace BoBo3DGal_Eyal
             Scale = new Vector3(1, 1, 1);
             Console.WriteLine($"New Transform{this}");
         }
+
+        public Transform(Vector3 position, Vector3 scale)
+        {
+            Name = base.Name;
+            Position = position;
+            Scale = scale;
+            Console.WriteLine(Environment.NewLine + $"New Transform{this}" + Environment.NewLine);
+        }
+        #endregion
+
+        #region Methods
+
+        #endregion
 
         #region Overrides
         public override string ToString()

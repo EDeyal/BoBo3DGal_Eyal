@@ -8,13 +8,13 @@ namespace BoBo3DGal_Eyal
     public class Ridigbooty : Component
     {
         #region Fields
+        Transform _transform;
+        BoxCollider _boxCollider;
+
         string _name;
-        float _velocity;
-        float _gravityScale;
-        float _mass;
+        float _velocity, _gravityScale, _mass;
         Vector3 _position;
-        bool _useGravity;
-        bool _isKinematic;
+        bool _useGravity, _isKinematic;
         #endregion
 
         #region Properties
@@ -25,34 +25,52 @@ namespace BoBo3DGal_Eyal
         public Vector3 Position { get => _position; set => _position = value; }
         public bool UseGravity { get => _useGravity; set => _useGravity = value; }
         public bool IsKinematic { get => _isKinematic; set => _isKinematic = value; }
+        public Transform @Transform { get => _transform; set => _transform = value; }
+        public BoxCollider @BoxCollider { get => _boxCollider; set => _boxCollider = value; }
         #endregion
 
-        public Ridigbooty(GameObject gameobject)
+        public Ridigbooty(GameObject gameObject)
         {
-            Name = gameobject.Name;
+            Name = gameObject.Name;
+            @Transform = gameObject.GetComponent<Transform>();
+            @BoxCollider = gameObject.GetComponent<BoxCollider>();
         }
 
         #region Methods
-        public Vector3 AddForce()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void AddForce(Vector3 force)
+        {/*
+            //Apply a force to this Rigidbody in direction of this GameObjects up axis
+            m_Rigidbody.AddForce(transform.up * m_Thrust);
+        */}
 
-        public Vector3 MovePosition()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void MovePosition(Vector3 position)
+        {/*
+            //Store user input as a movement vector
+            Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+            //Apply the movement vector to the current position, which is
+            //multiplied by deltaTime and speed for a smooth MovePosition
+            m_Rigidbody.MovePosition(transform.position + m_Input * Time.deltaTime * m_Speed);
+        */}
 
         public void ApplyConstantForce(Vector3 vector3, float amount)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void ApplyGravity()
+        {
+            //need to add another condition for checking collision from the bottom
+            if (UseGravity)
+                //need to happen on each update
+                Position = new Vector3(Position.X, Position.Y - Physics.Gravity, Position.Z);
         }
         #endregion
 
         #region Overrides
         public override string ToString()
         {
-            return Name;
+            return $"Rigidbody of {Name}";
         }
         #endregion
     }

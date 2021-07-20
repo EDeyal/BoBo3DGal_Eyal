@@ -7,5 +7,28 @@ namespace BoBo3DGal_Eyal
 {
     public abstract class Component : Icomponent
     {
+        #region Fields
+        GameObject _gameObject;
+        Transform _transform;
+        
+        string _name;
+        #endregion
+
+        #region Properties
+        public GameObject @GameObject { get => _gameObject; set => _gameObject = value; }
+        public Transform @Transform { get => _transform; set => _transform = value; }
+        public string Name { get => _name; set => _name = value; }
+        #endregion
+
+        #region Methods
+
+        #endregion
+
+        #region Overrides
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
+        #endregion
     }
 }
