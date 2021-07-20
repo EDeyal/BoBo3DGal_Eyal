@@ -11,7 +11,7 @@ namespace BoBo3DGal_Eyal
         float _x, _y, _z;
         readonly float _normalized, _magnitude, _sqrMagnitude;
 
-
+        //static fields
         static Vector3 _forward = new Vector3(0, 0, 1);
         static Vector3 _back = new Vector3(0, 0, -1);
         static Vector3 _left = new Vector3(-1, 0, 0);
@@ -20,6 +20,8 @@ namespace BoBo3DGal_Eyal
         static Vector3 _down = new Vector3(0, 1, 0);
         static Vector3 _one = new Vector3(1, 1, 1);
         static Vector3 _zero = new Vector3(0, 0, 0);
+        static Vector3 _negativeInfinity = new Vector3(float.NegativeInfinity, float.NegativeInfinity, float.NegativeInfinity);
+        static Vector3 _positiveInfinity = new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
         #endregion
 
         #region Properties
@@ -37,6 +39,8 @@ namespace BoBo3DGal_Eyal
         public Vector3 Down { get => _down; set => _down = value; }
         public Vector3 One { get => _one; set => _one = value; }
         public Vector3 Zero { get => _zero; set => _zero = value; }
+        public Vector3 NegativeInfinity { get => _negativeInfinity; set => _negativeInfinity = value; }
+        public Vector3 PositiveInfinity { get => _positiveInfinity; set => _positiveInfinity = value; }
         #endregion
 
         public Vector3(float x, float y, float z)
@@ -55,6 +59,82 @@ namespace BoBo3DGal_Eyal
         {
             Vector3 normlizedVector3 = normalize / normalize;
             return normlizedVector3;
+        }
+
+        public static float Dot(Vector3 vectorA, Vector3 vectorB)
+        {
+            //(firstVector3 * secondVector3 / magnitudeA * magnitudeB) - Cosine of 2 vector3
+            Vector3 newMagnitude = vectorA * vectorB;
+            float newFloatMagnitude = newMagnitude.X + newMagnitude.Y + newMagnitude.Z;
+            float cosAB = newFloatMagnitude / vectorA.Magnitude * vectorB.Magnitude;
+
+            //magnitudeA * magnitudeB * CosAB - Dot
+            //if normalized - if equal => 1 if opposite => -1
+            float dot = vectorA.Magnitude * vectorB.Magnitude * cosAB;
+            return dot;
+        }
+
+        public static Vector3 Lerp(Vector3 vectorA, Vector3 vectorB, float t)
+        {
+            if (t == 0)
+                return vectorA;
+            if (t == 0.5f)
+                return vectorA + ((vectorA / new Vector3(2, 2, 2)) - (vectorB / new Vector3(2, 2, 2)));
+            if (t == 1)
+                return vectorB;
+            else
+                Console.WriteLine("Error in Lerp");
+                return new Vector3();
+        }
+
+        public static Vector3 Min(Vector3 vectorA, Vector3 vectorB)
+        {
+            Vector3 minVector3 = new Vector3();
+
+            //determine min.X
+            if (vectorA.X < vectorB.X)
+                minVector3 = new Vector3(vectorA.X, minVector3.Y, minVector3.Z);
+            else
+                minVector3 = new Vector3(vectorB.X, minVector3.Y, minVector3.Z);
+            
+            //determine min.Y
+            if (vectorA.Y < vectorB.Y)
+                minVector3 = new Vector3(minVector3.X, vectorA.Y, minVector3.Z);
+            else
+                minVector3 = new Vector3(minVector3.X, vectorB.Y, minVector3.Z);
+
+            //determine min.Z
+            if (vectorA.Z < vectorB.Z)
+                minVector3 = new Vector3(minVector3.X, minVector3.Y, vectorA.Z);
+            else
+                minVector3 = new Vector3(minVector3.X, minVector3.Y, vectorB.Z);
+
+            return minVector3;
+        }
+
+        public static Vector3 Max(Vector3 vectorA, Vector3 vectorB)
+        {
+            Vector3 maxVector3 = new Vector3();
+
+            //determine max.X
+            if (vectorA.X > vectorB.X)
+                maxVector3 = new Vector3(vectorA.X, maxVector3.Y, maxVector3.Z);
+            else
+                maxVector3 = new Vector3(vectorB.X, maxVector3.Y, maxVector3.Z);
+
+            //determine max.Y
+            if (vectorA.Y > vectorB.Y)
+                maxVector3 = new Vector3(maxVector3.X, vectorA.Y, maxVector3.Z);
+            else
+                maxVector3 = new Vector3(maxVector3.X, vectorB.Y, maxVector3.Z);
+
+            //determine max.Z
+            if (vectorA.Z > vectorB.Z)
+                maxVector3 = new Vector3(maxVector3.X, maxVector3.Y, vectorA.Z);
+            else
+                maxVector3 = new Vector3(maxVector3.X, maxVector3.Y, vectorB.Z);
+
+            return maxVector3;
         }
         #endregion
 
@@ -75,19 +155,6 @@ namespace BoBo3DGal_Eyal
         {
             Vector3 replacedVector3 = newVector3;
             return replacedVector3;
-        }
-
-        public int GetDotProduct()
-        {
-            int dotPX;
-            int dotPY;
-            int dotPZ;
-
-            dotPX = (int)Math.Round(X * X);
-            dotPY = (int)Math.Round(Y * Y);
-            dotPZ = (int)Math.Round(Z * Z);
-
-            return dotPX + dotPY + dotPZ;
         }
         #endregion
 
