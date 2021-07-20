@@ -10,7 +10,9 @@ namespace BoBo3DGal_Eyal
         #region Fields
         float _x, _y, _z;
         readonly float _normalized, _magnitude, _sqrMagnitude;
+        #endregion
 
+        #region Static Fields
         //static fields
         static Vector3 _forward = new Vector3(0, 0, 1);
         static Vector3 _back = new Vector3(0, 0, -1);
@@ -45,6 +47,7 @@ namespace BoBo3DGal_Eyal
 
         public Vector3(float x, float y, float z)
         {
+            //initialize Vector3
             _x = x;
             _y = y;
             _z = z;
@@ -57,6 +60,7 @@ namespace BoBo3DGal_Eyal
         #region Static Methods
         public static Vector3 Normalize(Vector3 normalize)
         {
+            //calculation to normalize value
             Vector3 normlizedVector3 = normalize / normalize;
             return normlizedVector3;
         }
@@ -76,12 +80,19 @@ namespace BoBo3DGal_Eyal
 
         public static Vector3 Lerp(Vector3 vectorA, Vector3 vectorB, float t)
         {
+            //start point
             if (t == 0)
                 return vectorA;
+
+            //middle point
             if (t == 0.5f)
                 return vectorA + ((vectorA / new Vector3(2, 2, 2)) - (vectorB / new Vector3(2, 2, 2)));
+
+            //end point
             if (t == 1)
                 return vectorB;
+
+            //debug
             else
                 Console.WriteLine("Error in Lerp");
                 return new Vector3();
@@ -89,6 +100,7 @@ namespace BoBo3DGal_Eyal
 
         public static Vector3 Min(Vector3 vectorA, Vector3 vectorB)
         {
+            //minimum vector3
             Vector3 minVector3 = new Vector3();
 
             //determine min.X
@@ -106,14 +118,20 @@ namespace BoBo3DGal_Eyal
             //determine min.Z
             if (vectorA.Z < vectorB.Z)
                 minVector3 = new Vector3(minVector3.X, minVector3.Y, vectorA.Z);
+
+            //debug
             else
-                minVector3 = new Vector3(minVector3.X, minVector3.Y, vectorB.Z);
+            {
+                Console.WriteLine("Could not get minimal value");
+                minVector3 = minVector3.Zero;
+            }
 
             return minVector3;
         }
 
         public static Vector3 Max(Vector3 vectorA, Vector3 vectorB)
         {
+            //maximal value
             Vector3 maxVector3 = new Vector3();
 
             //determine max.X
@@ -131,8 +149,14 @@ namespace BoBo3DGal_Eyal
             //determine max.Z
             if (vectorA.Z > vectorB.Z)
                 maxVector3 = new Vector3(maxVector3.X, maxVector3.Y, vectorA.Z);
+
+            //debug
             else
-                maxVector3 = new Vector3(maxVector3.X, maxVector3.Y, vectorB.Z);
+            {
+                Console.WriteLine("Could not get maximal value");
+                maxVector3 = maxVector3.Zero;
+            }
+                
 
             return maxVector3;
         }
