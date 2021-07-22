@@ -8,32 +8,36 @@ namespace BoBo3DGal_Eyal
     public class Ridigbooty : Component
     {
         #region Fields
+        GameObject _parent;
         Transform _transform;
         BoxCollider _boxCollider;
 
         string _name;
-        float _velocity, _gravityScale, _mass;
+        float _velocity, _gravityScale, _mass, _drag;
         Vector3 _position;
-        bool _useGravity, _isKinematic;
+        bool _useGravity, _isKinematic, _freezRotation;
         #endregion
 
         #region Properties
+        public GameObject Parent { get => _parent; set => _parent = value; }
+        public Transform TransformP { get => _transform; set => _transform = value; }
+        public BoxCollider BoxColliderP { get => _boxCollider; set => _boxCollider = value; }
         public string Name { get => _name; set => _name = value; }
         public float Velocity { get => _velocity; set => _velocity = value; }
         public float GravityScale { get => _gravityScale; set => _gravityScale = value; }
         public float Mass { get => _mass; set => _mass = value; }
+        public float Drag { get => _drag; set => _drag = value; }
         public Vector3 Position { get => _position; set => _position = value; }
         public bool UseGravity { get => _useGravity; set => _useGravity = value; }
         public bool IsKinematic { get => _isKinematic; set => _isKinematic = value; }
-        public Transform @Transform { get => _transform; set => _transform = value; }
-        public BoxCollider @BoxCollider { get => _boxCollider; set => _boxCollider = value; }
+        public bool FreezRotation { get => _freezRotation; set => _freezRotation = value; }
         #endregion
 
         public Ridigbooty(GameObject gameObject)
         {
             Name = gameObject.Name;
-            @Transform = gameObject.GetComponent<Transform>();
-            @BoxCollider = gameObject.GetComponent<BoxCollider>();
+            TransformP = gameObject.GetComponent<Transform>();
+            BoxColliderP = gameObject.GetComponent<BoxCollider>();
         }
 
         #region Methods
@@ -70,7 +74,7 @@ namespace BoBo3DGal_Eyal
         #region Overrides
         public override string ToString()
         {
-            return $"Rigidbody of {Name}";
+            return $"Rigidbody of {Name}" + Environment.NewLine;
         }
         #endregion
     }

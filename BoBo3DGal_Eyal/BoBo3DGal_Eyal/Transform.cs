@@ -10,21 +10,25 @@ namespace BoBo3DGal_Eyal
 
         #region Fields
         GameObject _parent;
+        Transform _transform;
         
         string _name;
-        Vector3 _localPosition;
-        Vector3 _forward;
-        Vector3 _right;
-        Vector3 _down;
         Vector3 _position;
         Vector3 _scale;
+        Vector3 _xAxis = new Vector3(1, 0, 0);
+        Vector3 _yAxis = new Vector3(0, 1, 0);
+        Vector3 _zAxis = new Vector3(0, 0, 1);
         #endregion
 
         #region Properties
         public GameObject Parent { get => _parent; set => _parent = value; }
+        public Transform TransformP { get => _transform; set => _transform = value; }
         public string Name { get => _name; set => _name = value; }
         public Vector3 Position { get => _position; set => _position = value; }
         public Vector3 Scale { get => _scale; set => _scale = value; }
+        public Vector3 XAxis { get => _xAxis; set => _xAxis = value; }
+        public Vector3 YAxis { get => _yAxis; set => _yAxis = value; }
+        public Vector3 ZAxis { get => _zAxis; set => _zAxis = value; }
         #endregion
 
         #region Constructors
@@ -45,11 +49,44 @@ namespace BoBo3DGal_Eyal
         }
         #endregion
 
+        #region Methods
+
+        public void Translate(Vector3 translation)
+        {
+            //not good
+            Position.Add(translation);
+        }
+
+        public void Translate(float x, float y, float z)
+        {
+            //not good
+            Position.Add(new Vector3(x,y,z));
+        }
+
+        public T GetComponent<T>() where T : Component
+        {
+            foreach (Component component in Parent.Components)
+                if (component is T)
+                    return component as T;
+            
+            return null;
+        }
+
+        public T GetComponents<T>() where T : Component
+        {
+            foreach (Component component in Parent.Components)
+                return component as T;
+
+            return null;
+        }
+        #endregion
+
         #region Static Methods
         public static void Destroy(GameObject parentGameObject)
         {
+            //check if gameObject exist
             if (parentGameObject == null)
-                Console.WriteLine("Couldn't destroy parent GameObject");
+                Console.WriteLine("Couldn't find parent GameObject to destroy");
 
             //removes a GameObject.
             Destroy(parentGameObject);
@@ -57,8 +94,9 @@ namespace BoBo3DGal_Eyal
 
         public static void Destroy(Component parentComponent)
         {
+            //check if gameObject exist
             if (parentComponent == null)
-                Console.WriteLine("Couldn't destroy parent Component");
+                Console.WriteLine("Couldn't find parent Component to destroy");
 
             //removes a Component.
             Destroy(parentComponent);
@@ -101,44 +139,29 @@ namespace BoBo3DGal_Eyal
         }
         #endregion
 
-        #region Methods
-
-        public void Translate(Vector3 translation)
-        {
-            //not good
-            Position.Add(translation);
-        }
-
-        public void Translate(float x, float y, float z)
-        {
-            //not good
-            Position.Add(new Vector3(x,y,z));
-        }
-
-        public T GetComponent<T>() where T : Component
-        {
-            foreach (Component component in Parent.Components)
-                if (component is T)
-                    return component as T;
-            
-            return null;
-        }
-
-        public T GetComponents<T>() where T : Component
-        {
-            foreach (Component component in Parent.Components)
-                return component as T;
-
-            return null;
-        }
-        #endregion
-
         #region Overrides
         public override string ToString()
         {
             return $"Transform of {Name}" + Environment.NewLine
                  + $"Position: {Position}," + Environment.NewLine
-                 + $" Scale: {Scale}";
+                 + $"Scale: {Scale}" + Environment.NewLine;
+        }
+        #endregion
+
+        #region Operators
+        public static bool operator ==(Transform firstTransform, Transform secondTransform)
+        {
+            if (firstTransform == secondTransform)
+                return true;
+            else
+                return false;
+        }
+        public static bool operator !=(Transform firstTransform, Transform secondTransform)
+        {
+            if (firstTransform != secondTransform)
+                return true;
+            else
+                return false;
         }
         #endregion
     }

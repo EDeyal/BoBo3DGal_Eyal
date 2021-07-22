@@ -21,11 +21,12 @@ namespace BoBo3DGal_Eyal
 
         #endregion
 
-        #region Methods
         public Scene(int sceneIndex)
         {
             SceneIndex = sceneIndex;
         }
+
+        #region Methods
 
         //initializing scene
         public void Start()
@@ -44,10 +45,11 @@ namespace BoBo3DGal_Eyal
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.RemoveComponent(bc);
             GetHirarchy[0].Root.GetChildren[0].GetGameObject.GetComponent<Transform>();
             GetGameObject("Player Hand");
-            GetGameObject("Playe");
+            GetGameObject("Player");
             
             OnEnable();
             Console.WriteLine("Scene Started");
+            Console.WriteLine();
         }
 
         public void AlternativeStart()
@@ -77,7 +79,9 @@ namespace BoBo3DGal_Eyal
 
             OnEnable();
             Console.WriteLine("Scene Started");
+            Console.WriteLine();
         }
+
         public void Update()
         {
             foreach (GameObject gameObject in GetSetGameObjects)
@@ -86,7 +90,9 @@ namespace BoBo3DGal_Eyal
 
             Console.WriteLine("Executing Update");
             Console.ReadLine();
+            Console.WriteLine();
         }
+
         public void OnEnable()//Enabling all game objects
         {
             if(GetHirarchy != null || GetHirarchy.Count != 0)
@@ -97,27 +103,30 @@ namespace BoBo3DGal_Eyal
                     tree.Root.EnableNode(tree.Root);
                     //gameObject.Enable();
                 }
+
                 Console.WriteLine("Scene Enabled");
+                Console.WriteLine();
             }
             else
-            {
                 Console.WriteLine("Game Objects ListEmpty, Enabling Skipped");
-            }
+
+            Console.WriteLine();
         }
+
         public void OnDisable()
         {
             foreach (var tree in GetHirarchy)
-            {
                 tree.Root.GetGameObject.Disable();
-            }
+
         }
+
         public void GetGameObject(string gameObjectName)
         {
             Console.WriteLine($"Looking for GameObject with the name:{gameObjectName}");
             foreach (var tree in GetHirarchy)
-            {
                 tree.Root.FindGameObject(gameObjectName);
-            }
+
+            Console.WriteLine();
         }
         #endregion
     }

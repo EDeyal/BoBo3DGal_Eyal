@@ -43,6 +43,8 @@ namespace BoBo3DGal_Eyal
 
                     if (AABB(colider, anotherColider))
                         Console.WriteLine(colider + " and " + anotherColider + " are coliding");
+
+                    Console.WriteLine();
                 }
             }
         }

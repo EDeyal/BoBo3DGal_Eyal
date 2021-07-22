@@ -91,7 +91,7 @@ namespace BoBo3DGal_Eyal
         #region Overrides
         public override string ToString()
         {
-            return $"BoxCollider of {Name}";
+            return $"BoxCollider of {Name}" + Environment.NewLine;
         }
         #endregion
     }

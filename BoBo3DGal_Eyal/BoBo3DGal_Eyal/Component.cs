@@ -15,8 +15,8 @@ namespace BoBo3DGal_Eyal
         #endregion
 
         #region Properties
-        public GameObject @GameObject { get => _gameObject; set => _gameObject = value; }
-        public Transform @Transform { get => _transform; set => _transform = value; }
+        public GameObject GameObjectP { get => _gameObject; set => _gameObject = value; }
+        public Transform TransformP { get => _transform; set => _transform = value; }
         public string Name { get => _name; set => _name = value; }
         #endregion
 
@@ -27,7 +27,7 @@ namespace BoBo3DGal_Eyal
         #region Overrides
         public override string ToString()
         {
-            return $"{Name}";
+            return $"{Name}" + Environment.NewLine;
         }
         #endregion
     }

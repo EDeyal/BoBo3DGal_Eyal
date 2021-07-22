@@ -37,10 +37,12 @@ namespace BoBo3DGal_Eyal
         public GameObject(string name)
         {
             Name = name;
+            IsEnabled = true;
+
             Console.WriteLine($"New Game Object has been created {ToString()}");
             Transform transform = new Transform(this);
             AddComponent(transform);
-            transform.GameObject = this;
+            transform.GameObjectP = this;
         }
 
         //Constructor with Transform that the player will enter
@@ -84,6 +86,7 @@ namespace BoBo3DGal_Eyal
             OnDisable();
             Console.WriteLine($"{Name} is Destroyed");
             gameObjects.Remove(this);
+            Console.WriteLine();
         }
 
         public void OnDisable()
@@ -93,6 +96,7 @@ namespace BoBo3DGal_Eyal
                 Components.Remove(component);
 
             Console.WriteLine($"All Components Are Removed from {this}");
+            Console.WriteLine();
         }
 
         public void AddComponent(Component component)
@@ -100,25 +104,31 @@ namespace BoBo3DGal_Eyal
             Console.WriteLine("Trying to add Componnent");
             if(component == null)
             {
-                Console.WriteLine("Error in Add Component");
+                Console.WriteLine("Error in AddComponent");
+                Console.WriteLine();
                 return;
             }
+
             if (CheckForTransform(component))
             {
                 Console.WriteLine("Cant Add for more than one Transform to an object");
+                Console.WriteLine();
                 return;
             }
 
             Components.Add(component);
             Console.WriteLine("Component added");
+            Console.WriteLine();
         }
 
         public void RemoveComponent(Component component) 
         {
             //if the spechific component exists inside of the componnenst it will be removed
-            if (_components == null)//cant really be null but still good to check
+            //cant really be null but still good to check
+            if (_components == null)
             {
                 Console.WriteLine("ERROR Game Object Componnents Are NULL");
+                Console.WriteLine();
                 return;
             }
 
@@ -131,25 +141,33 @@ namespace BoBo3DGal_Eyal
                     if(_components[i] == component)
                     {
                         Console.WriteLine($"Removing Component {_components[i]}");
+                        Console.WriteLine();
                         _components.Remove(component);
                         return;
                     }
                 }
 
                 Console.WriteLine("Component not found");
+                Console.WriteLine();
             }
+
             else if(isTransform == true) 
                 Console.WriteLine("Transform can not be removed");
 
             else
                 Console.WriteLine("Component is null");
+
+            Console.WriteLine();
         }
         
         public T GetComponent<T>() where T : Component
         {
             Console.WriteLine("Trying to get component");
             if (typeof(T) == null)
+            {
                 Console.WriteLine("Did not find component");
+                Console.WriteLine();
+            }
 
             //SearchComponent
             foreach (Component item in _components)
@@ -160,6 +178,7 @@ namespace BoBo3DGal_Eyal
                     return item as T;
                 }
             }
+
             return null;
         }
         
@@ -199,7 +218,8 @@ namespace BoBo3DGal_Eyal
         #region Overrides
         public override string ToString()
         {
-            return $"Name:{Name}, IsEnabled: {IsEnabled}";
+            return $"Name:{Name}" + Environment.NewLine
+                 + $"IsEnabled: {IsEnabled}" + Environment.NewLine;
         }
         #endregion
     }

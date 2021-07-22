@@ -33,9 +33,11 @@ namespace BoBo3DGal_Eyal
         public void OnEnable()
         {
             Console.WriteLine("Enabling Game");
+
             SceneList.Add(DefaultScene);
             CurrentScene = DefaultScene;
             Console.WriteLine("Game Enabled");
+            Console.WriteLine();
         }
 
         public bool Run()
@@ -48,16 +50,19 @@ namespace BoBo3DGal_Eyal
                 if (scene == null)
                 {
                     Console.WriteLine("Error in Run");
+                    Console.WriteLine();
                     return false;
                 }
 
                 Console.WriteLine("Scene Found Attempting to load");
                 _isGameOn = true;
+                Console.WriteLine();
                 return LoadScene(scene);
             }
 
             CurrentScene.Update();
             Console.WriteLine("Game Running");
+            Console.WriteLine();
             return true;
         }
 
@@ -67,11 +72,13 @@ namespace BoBo3DGal_Eyal
             if(scene == null)
             {
                 Console.WriteLine("Error in LoadScene");
+                Console.WriteLine();
                 return false;
             }
 
             scene.Start();
             Console.WriteLine("Scene Loadded");
+            Console.WriteLine();
             return true;
         }
 
@@ -82,6 +89,7 @@ namespace BoBo3DGal_Eyal
             if(CurrentScene == null)
             {
                 Console.WriteLine("Error in Active Scene");
+                Console.WriteLine();
                 return null;
             }
 
