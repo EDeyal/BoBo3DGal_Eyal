@@ -15,7 +15,7 @@ namespace BoBo3DGal_Eyal
         
         string _name;
         bool _isEnabled;
-        bool _isSetActive = true;
+        bool _isActive = true;
         #endregion
 
         #region Properties
@@ -23,9 +23,9 @@ namespace BoBo3DGal_Eyal
         public List<Component> Components { get => _components; set => _components = value; }
         public string Name { get => _name; set => _name = value; }
         public bool IsEnabled { get => _isEnabled; set => _isEnabled = value; }
-        public bool IsSetActive { get => _isSetActive; set
+        public bool IsActive { get => _isActive; set
             { // if changing set active to value it will also change isEnabled 
-                _isSetActive = value;
+                _isActive = value;
                 _isEnabled = value;
             }
         }
@@ -68,7 +68,7 @@ namespace BoBo3DGal_Eyal
         public void EnableGameObject()
         {
             Console.WriteLine($"Enabling GameObject {ToString()}");
-            if(_isSetActive == false)
+            if(_isActive == false)
             {
                 Console.WriteLine($"Not enabling {ToString()}");
                 return;
