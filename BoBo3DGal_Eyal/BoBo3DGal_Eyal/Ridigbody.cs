@@ -40,6 +40,7 @@ namespace BoBo3DGal_Eyal
             BoxColliderP = gameObject.GetComponent<BoxCollider>();
         }
 
+        //need fixes
         #region Methods
         public void AddForce(Vector3 force)
         {/*
@@ -68,6 +69,100 @@ namespace BoBo3DGal_Eyal
             if (UseGravity)
                 //need to happen on each update
                 Position = new Vector3(Position.X, Position.Y - Physics.Gravity, Position.Z);
+        }
+
+        public T GetComponent<T>() where T : Component
+        {
+            foreach (Component component in Parent.Components)
+                if (component is T)
+                    return component as T;
+
+            return null;
+        }
+
+        public T GetComponents<T>() where T : Component
+        {
+            foreach (Component component in Parent.Components)
+                return component as T;
+
+            return null;
+        }
+        #endregion
+
+        //need fixes
+        #region Static Methods
+        public static void Destroy(GameObject parentGameObject)
+        {
+            //check if gameObject exist
+            if (parentGameObject == null)
+                Console.WriteLine("Couldn't find parent GameObject to destroy");
+
+            //removes a GameObject.
+            Destroy(parentGameObject);
+        }
+
+        public static void Destroy(Component parentComponent)
+        {
+            //check if gameObject exist
+            if (parentComponent == null)
+                Console.WriteLine("Couldn't find parent Component to destroy");
+
+            //removes a Component.
+            Destroy(parentComponent);
+        }
+
+        /*
+        public static void Destroy(Assest parentAssest)
+        {
+            //removes an asset.
+            Destroy(parentAssest);
+        }
+        */
+
+        public static void DontDestroyOnLoad()
+        {
+            //do not destroy the target Object when loading a new Scene.
+        }
+
+        public static T FindObjectOfType<T>(List<T> listOfAllLoadedObjects)
+        {
+            //check if list empty
+            if (listOfAllLoadedObjects.Count == 0)
+                Console.WriteLine("No objects have loaded yet.");
+
+            //returns first loaded object
+            return listOfAllLoadedObjects.First();
+        }
+
+        public static T FindObjectsOfType<T>(List<T> listOfAllLoadedObjects)
+        {
+            //check if list empty
+            if (listOfAllLoadedObjects.Count == 0)
+                Console.WriteLine("No objects have loaded yet.");
+
+            //returns all loaded objects
+            foreach (T obj in listOfAllLoadedObjects)
+                return obj;
+
+            return default;
+        }
+        #endregion
+
+        //empty for now
+        #region Massages
+        public void OnCollisionEnter()
+        {
+
+        }
+
+        public void OnColissionStay()
+        {
+
+        }
+
+        public void OnCollisionExit()
+        {
+
         }
         #endregion
 

@@ -57,6 +57,26 @@ namespace BoBo3DGal_Eyal
             _sqrMagnitude = (float)Math.Sqrt(_magnitude);
         }
 
+        #region Methods
+        public Vector3 Add(Vector3 newVector3)
+        {
+            Vector3 AddVector3 = new Vector3(X + newVector3.X, Y + newVector3.Y, Z + newVector3.Z);
+            return AddVector3;
+        }
+
+        public Vector3 Sub(Vector3 newVector3)
+        {
+            Vector3 SubVector3 = new Vector3(X - newVector3.X, Y - newVector3.Y, Z - newVector3.Z);
+            return SubVector3;
+        }
+
+        public Vector3 Set(Vector3 newVector3)
+        {
+            Vector3 replacedVector3 = newVector3;
+            return replacedVector3;
+        }
+        #endregion
+
         #region Static Methods
         public static Vector3 Normalize(Vector3 normalize)
         {
@@ -159,26 +179,6 @@ namespace BoBo3DGal_Eyal
                 
 
             return maxVector3;
-        }
-        #endregion
-
-        #region Methods
-        public Vector3 Add(Vector3 newVector3)
-        {
-            Vector3 AddVector3 = new Vector3(X + newVector3.X, Y + newVector3.Y, Z + newVector3.Z);
-            return AddVector3;
-        }
-
-        public Vector3 Sub(Vector3 newVector3)
-        {
-            Vector3 SubVector3 = new Vector3(X - newVector3.X, Y - newVector3.Y, Z - newVector3.Z);
-            return SubVector3;
-        }
-
-        public Vector3 Set(Vector3 newVector3)
-        {
-            Vector3 replacedVector3 = newVector3;
-            return replacedVector3;
         }
         #endregion
 

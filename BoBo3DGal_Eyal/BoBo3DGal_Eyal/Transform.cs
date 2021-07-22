@@ -49,6 +49,7 @@ namespace BoBo3DGal_Eyal
         }
         #endregion
 
+        //need fixes
         #region Methods
 
         public void Translate(Vector3 translation)
@@ -81,6 +82,7 @@ namespace BoBo3DGal_Eyal
         }
         #endregion
 
+        //need fixes
         #region Static Methods
         public static void Destroy(GameObject parentGameObject)
         {
@@ -145,6 +147,35 @@ namespace BoBo3DGal_Eyal
             return $"Transform of {Name}" + Environment.NewLine
                  + $"Position: {Position}," + Environment.NewLine
                  + $"Scale: {Scale}" + Environment.NewLine;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Transform transform &&
+                   EqualityComparer<GameObject>.Default.Equals(GameObjectP, transform.GameObjectP) &&
+                   EqualityComparer<Transform>.Default.Equals(TransformP, transform.TransformP) &&
+                   Name == transform.Name &&
+                   EqualityComparer<GameObject>.Default.Equals(_parent, transform._parent) &&
+                   EqualityComparer<Transform>.Default.Equals(_transform, transform._transform) &&
+                   _name == transform._name &&
+                   EqualityComparer<Vector3>.Default.Equals(_position, transform._position) &&
+                   EqualityComparer<Vector3>.Default.Equals(_scale, transform._scale) &&
+                   EqualityComparer<Vector3>.Default.Equals(_xAxis, transform._xAxis) &&
+                   EqualityComparer<Vector3>.Default.Equals(_yAxis, transform._yAxis) &&
+                   EqualityComparer<Vector3>.Default.Equals(_zAxis, transform._zAxis) &&
+                   EqualityComparer<GameObject>.Default.Equals(Parent, transform.Parent) &&
+                   EqualityComparer<Transform>.Default.Equals(TransformP, transform.TransformP) &&
+                   Name == transform.Name &&
+                   EqualityComparer<Vector3>.Default.Equals(Position, transform.Position) &&
+                   EqualityComparer<Vector3>.Default.Equals(Scale, transform.Scale) &&
+                   EqualityComparer<Vector3>.Default.Equals(XAxis, transform.XAxis) &&
+                   EqualityComparer<Vector3>.Default.Equals(YAxis, transform.YAxis) &&
+                   EqualityComparer<Vector3>.Default.Equals(ZAxis, transform.ZAxis);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
         #endregion
 
