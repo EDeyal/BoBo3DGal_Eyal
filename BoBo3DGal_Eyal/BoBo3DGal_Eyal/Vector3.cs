@@ -9,7 +9,7 @@ namespace BoBo3DGal_Eyal
     {
         #region Fields
         float _x, _y, _z;
-        readonly float _normalized, _magnitude, _sqrMagnitude;
+        readonly float _magnitude, _sqrMagnitude;
         #endregion
 
         #region Static Fields
@@ -31,7 +31,6 @@ namespace BoBo3DGal_Eyal
         public float Y { get => _y; set => _y = value; }
         public float Z { get => _z; set => _z = value; }
         public float Magnitude { get => _magnitude; }
-        public float Normalized { get => _normalized; }
         public float SqrMagnitude { get => _sqrMagnitude; }
         public Vector3 Front { get => _forward; set => _forward = value; }
         public Vector3 Back { get => _back; set => _back = value; }
@@ -53,7 +52,6 @@ namespace BoBo3DGal_Eyal
             _z = z;
 
             _magnitude = (float)Math.Sqrt(x * x + y * y + z * z);
-            _normalized = _magnitude / _magnitude;
             _sqrMagnitude = (float)Math.Sqrt(_magnitude);
         }
 
@@ -78,10 +76,11 @@ namespace BoBo3DGal_Eyal
         #endregion
 
         #region Static Methods
-        public static Vector3 Normalize(Vector3 normalize)
+
+        public static Vector3 Normalize(Vector3 newVector3)
         {
             //calculation to normalize value
-            Vector3 normlizedVector3 = normalize / normalize;
+            Vector3 normlizedVector3 = new Vector3(newVector3.X / newVector3.Magnitude, newVector3.Y / newVector3.Magnitude, newVector3.Z / newVector3.Magnitude);
             return normlizedVector3;
         }
 
