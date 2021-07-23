@@ -5,9 +5,28 @@ using System.Threading.Tasks;
 
 namespace BoBo3DGal_Eyal
 {
-    public class Node//class that holds one gameObject and knows the location on the tree
-        //leaf, root, chield, parant
+    //class that holds one gameObject and knows the location on the tree
+    public class Node
     {
+        //leaf, root, chield, parant
+
+        #region Fields
+        List<Node> _children;
+        Node _parent;
+        GameObject _gameObject;
+        bool _isRoot;
+        //bool _isLeaf;
+        //bool _isChild;
+        //bool _isParent;
+        #endregion
+
+        #region Properties
+        public GameObject GetGameObject => _gameObject;
+        public bool GetIsRoot => _isRoot;
+        public List<Node> GetChildren => _children;
+        public Node GetSetParant { get => _parent; set => _parent = value; }
+        #endregion
+
         public Node(GameObject gameObject, Node parent)
         {
             _gameObject = gameObject;
@@ -19,21 +38,6 @@ namespace BoBo3DGal_Eyal
                 parent.AddChild(this);
             }
         }
-        #region Fields
-        List<Node> _children;
-        Node _parent;
-        GameObject _gameObject;
-        bool _isRoot;
-        //bool _isLeaf;
-        //bool _isChild;
-        //bool _isParent;
-        #endregion
-        #region Properties
-        public GameObject GetGameObject => _gameObject;
-        public bool GetIsRoot => _isRoot;
-        public List<Node> GetChildren => _children;
-        public Node GetSetParant { get => _parent; set => _parent = value; }
-        #endregion
         public GameObject FindGameObjectInChildren(string name)
         {
             //check if name is acceptable or not null
@@ -65,6 +69,8 @@ namespace BoBo3DGal_Eyal
             {
                 EnableNode(child);
             }
+
+            Console.WriteLine();
         }
         public void DisableNode(Node node)
         {
@@ -81,11 +87,13 @@ namespace BoBo3DGal_Eyal
             if(gameObjectName == null || gameObjectName == "")
             {
                 Console.WriteLine("Error in FindGameObject Name");
+                Console.WriteLine();
                 return null;
             }
             if (_gameObject.Name == gameObjectName)
             {
                 Console.WriteLine($"GameObject Found returning {_gameObject.Name}");
+                Console.WriteLine();
                 return _gameObject;
             }
             else
@@ -96,16 +104,18 @@ namespace BoBo3DGal_Eyal
                     if(gameObject != null)
                     {
                         Console.WriteLine($"GameObject Found returning {gameObject.Name}");
+                        Console.WriteLine();
                         return gameObject;
                     }
                 }
             }
             Console.WriteLine("There are no gameobjects of the name in this root");
+            Console.WriteLine();
             return null;
         }
         public override string ToString()
         {
-            return GetGameObject.Name.ToString();
+            return GetGameObject.Name.ToString() + Environment.NewLine;
         }
     }
 }

@@ -11,9 +11,11 @@ namespace BoBo3DGal_Eyal
         #region Fields
         Node _root;
         #endregion
+
         #region Fields
         public Node Root => _root;
         #endregion
+
         public TreeOfGameObjects(Node root)
         {
             _root = root;
