@@ -8,6 +8,7 @@ namespace BoBo3DGalEyalSpaceShooter
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private GameObjectManager _gameObjectManager;
 
         public Game1()
         {
@@ -18,6 +19,7 @@ namespace BoBo3DGalEyalSpaceShooter
 
         protected override void Initialize()
         {
+            _gameObjectManager = new GameObjectManager();
             // TODO: Add your initialization logic here
 
             base.Initialize();
@@ -27,6 +29,10 @@ namespace BoBo3DGalEyalSpaceShooter
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+
+            _gameObjectManager.AddNewParent("Spaceship");
+            GameObject go = _gameObjectManager.FindGameObjectByName("Spaceship");
+            go.AddComponent(new Ridigbooty(go));
             // TODO: use this.Content to load your game content here
         }
 
