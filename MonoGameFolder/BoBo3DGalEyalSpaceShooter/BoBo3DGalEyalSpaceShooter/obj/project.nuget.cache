@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "k7xIUBxGqxv6Cs3uA6CLRYcsJngj6Xqlc2d88NMIYoiU4IxOHiyfavEL/F/yE3KWAotDlcsMZmjAvSEyEXehdQ==",
+  "dgSpecHash": "DUl2pYvnNugtc7yxbQvVYPuddwPMBYBOpo0vNM3jVpJqlLQhJKs8fHzFidvoYD6aDggRwGgKQGmGMFWD3c4CsQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Daimnon's\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
+  "projectFilePath": "C:\\Users\\edeya\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Daimnon's\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
-    "C:\\Users\\Daimnon's\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+    "C:\\Users\\edeya\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\edeya\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
   ],
   "logs": []
 }

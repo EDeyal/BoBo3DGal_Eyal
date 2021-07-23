@@ -38,24 +38,24 @@ namespace BoBo3DGalEyalSpaceShooter
                 parent.AddChild(this);
             }
         }
-        public GameObject FindGameObjectInChildren(string name)
-        {
-            //check if name is acceptable or not null
-            if (name == _gameObject.Name)
-            {
-                return _gameObject;
-            }
-            GameObject wantedObject = null;
-            foreach (var node in _children)
-            {
-                wantedObject = node.FindGameObjectInChildren(name);
-                if(wantedObject != null)
-                {
-                    return wantedObject;
-                }
-            }
-            return null;
-        }
+        //public GameObject FindGameObjectInChildren(string name)
+        //{
+        //    //check if name is acceptable or not null
+        //    if (name == _gameObject.Name)
+        //    {
+        //        return _gameObject;
+        //    }
+        //    GameObject wantedObject = null;
+        //    foreach (var node in _children)
+        //    {
+        //        wantedObject = node.FindGameObjectInChildren(name);
+        //        if(wantedObject != null)
+        //        {
+        //            return wantedObject;
+        //        }
+        //    }
+        //    return null;
+        //}
         public void AddChild(Node child)
         {
             child.GetSetParant = this;

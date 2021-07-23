@@ -174,23 +174,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daimnon's\\.nuget\\packages\\": {},
+    "C:\\Users\\edeya\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Daimnon's\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
+      "projectUniqueName": "C:\\Users\\edeya\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
       "projectName": "BoBo3DGalEyalSpaceShooter",
-      "projectPath": "D:\\Users\\Daimnon's\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
-      "packagesPath": "C:\\Users\\Daimnon's\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Daimnon's\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\obj\\",
+      "projectPath": "C:\\Users\\edeya\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
+      "packagesPath": "C:\\Users\\edeya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\edeya\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Daimnon's\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\edeya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
