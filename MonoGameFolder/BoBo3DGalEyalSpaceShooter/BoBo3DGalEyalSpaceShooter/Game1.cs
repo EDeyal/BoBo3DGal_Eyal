@@ -29,10 +29,11 @@ namespace BoBo3DGalEyalSpaceShooter
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
             _gameObjectManager.AddNewParent("Spaceship");
             GameObject go = _gameObjectManager.FindGameObjectByName("Spaceship");
             go.AddComponent(new Ridigbooty(go));
+            System.Console.WriteLine(go);
+
             // TODO: use this.Content to load your game content here
         }
 
