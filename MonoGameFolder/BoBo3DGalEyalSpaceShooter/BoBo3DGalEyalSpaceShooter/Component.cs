@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace BoBo3DGalEyalSpaceShooter
 {
-    public abstract class Component : Icomponent
+    public abstract class Component : Game, Icomponent
     {
         #region Fields
         GameObject _gameObject;

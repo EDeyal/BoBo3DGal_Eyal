@@ -33,6 +33,7 @@ namespace BoBo3DGalEyalSpaceShooter
             _gameObjectManager.AddNewParent("Spaceship");
             GameObject go = _gameObjectManager.FindGameObjectByName("Spaceship");
             go.AddComponent(new Ridigbooty(go));
+            go.AddComponent(new Model3D(go,"Pizza_Car"));
             System.Console.WriteLine(go);
             SubscriptionManager.ActivateAllSubscribersOfType<IStartable>();
             // TODO: use this.Content to load your game content here
