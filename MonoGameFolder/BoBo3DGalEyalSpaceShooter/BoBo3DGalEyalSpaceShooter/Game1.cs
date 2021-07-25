@@ -21,6 +21,7 @@ namespace BoBo3DGalEyalSpaceShooter
         {
             _gameObjectManager = new GameObjectManager();
             // TODO: Add your initialization logic here
+            InputManager im = new InputManager();
 
             base.Initialize();
         }
@@ -29,10 +30,11 @@ namespace BoBo3DGalEyalSpaceShooter
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
             _gameObjectManager.AddNewParent("Spaceship");
             GameObject go = _gameObjectManager.FindGameObjectByName("Spaceship");
             go.AddComponent(new Ridigbooty(go));
+            System.Console.WriteLine(go);
+            SubscriptionManager.ActivateAllSubscribersOfType<IStartable>();
             // TODO: use this.Content to load your game content here
         }
 
@@ -40,10 +42,11 @@ namespace BoBo3DGalEyalSpaceShooter
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
             // TODO: Add your update logic here
 
+            SubscriptionManager.ActivateAllSubscribersOfType<IUpdatable>();
             base.Update(gameTime);
+
         }
 
         protected override void Draw(GameTime gameTime)

@@ -174,28 +174,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\new-hp\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\edeya\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\new-hp\\source\\repos\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
+      "projectUniqueName": "C:\\Users\\edeya\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
       "projectName": "BoBo3DGalEyalSpaceShooter",
-      "projectPath": "C:\\Users\\new-hp\\source\\repos\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
-      "packagesPath": "C:\\Users\\new-hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\new-hp\\source\\repos\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\obj\\",
+      "projectPath": "C:\\Users\\edeya\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter.csproj",
+      "packagesPath": "C:\\Users\\edeya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\edeya\\Documents\\GitHub\\BoBo3DGal_Eyal\\MonoGameFolder\\BoBo3DGalEyalSpaceShooter\\BoBo3DGalEyalSpaceShooter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\new-hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\edeya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -244,7 +241,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
